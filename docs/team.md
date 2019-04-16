@@ -1,16 +1,16 @@
 ---
 layout: default
-title:  Team
+title:  Team Memeber Details
 ---
 
 # {{ page.title }}
 
 
-## USER 1
-***UCI Net ID***: ucinetid1
+## Enji Enkhjargal
+***UCI Net ID***: eenkhjar
 
-## USER 2
-***UCI Net ID***: ucinetid2
+## Maxine Yuan
+***UCI Net ID***: mtyuan
 
-## USER 3
-***UCI Net ID***: ucinetid3
+## Xinxin Xie 
+***UCI Net ID***: xinxinx2
