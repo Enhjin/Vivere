@@ -3,7 +3,7 @@ layout: default
 title:  Home
 ---
 
-Source code: [link](https://github.com/Enhjin/Vivere "Github repo").
+Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
 
 Reports:
 
