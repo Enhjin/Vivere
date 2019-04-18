@@ -14,11 +14,11 @@ title: Proposal
        * A good result will have the agent escape from the fire and would have the agent collect as many resources as possible.
        * A negative result would be the agent dying in the farm.
 
-In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials for us could be more efficient and safer.
+In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials could be more efficient and safer.
 
 ## Algorithm 
 
-We anticipate on using reinforcement learning with a specificity in Q-learning. Since the agent have little knowledge about its surroundings in the beginning, it will “learn” the series of best actions while playing the game multiple times.
+We anticipate that we will be using reinforcement learning with a specificity in Q-learning. Since the agent will have little knowledge about its surroundings in the beginning, it will “learn” the series of best actions while playing the game multiple times.
 
 ## Evaluation
 
@@ -32,7 +32,7 @@ Our quantitative metrics specifically aim at the time it takes to escape the far
 
 *Expectation in Performance Improvement*
 
- We expect to improve performance of time time by a couple seconds faster (~2-5 seconds faster) and to collect more resources (~1-5 more) for performance of resource collecting. Ideally, we would like to have our agent improve in both metrics.
+ We expect to improve performance of time time by a couple seconds faster (~2-5 seconds) and to collect more resources (~1-5 more) for performance of resource collecting. Ideally, we would like to have our agent improve in both metrics.
 
 **Qualitative Analysis:**
 
