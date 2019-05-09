@@ -3,7 +3,7 @@ layout: default
 title:  Home
 ---
 
-(setq markdown-css-paths '("/index.css"))
+(setq markdown-css-paths '("https://enhjin.github.io/Vivere/index.css"))
 
 Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
 
