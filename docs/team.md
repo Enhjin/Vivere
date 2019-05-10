@@ -3,7 +3,7 @@ layout: default
 title: Team Member Details
 ---
 
-### {{ page.title }}
+### {{ page.title }} ###
 
 
 * Enji Enkhjargal *
