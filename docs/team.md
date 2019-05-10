@@ -1,9 +1,9 @@
 ---
 layout: default
-title:  Team Memeber Details
+title: Team Member Details
 ---
 
-# {{ page.title }}
+### {{ page.title }}
 
 
 * Enji Enkhjargal *
