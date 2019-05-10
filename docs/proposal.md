@@ -2,27 +2,26 @@
 layout: default
 title: Proposal
 ---
-## Summary of the project
+### Summary of the project
   This project will create something similar to that of an “escape room.”
 
   * Input:
-       * A randomly generated farm that is on fire. Our agent should find the exit in the shortest time and try its best to save resources while running away, such as collecting eggs or plants while in danger.
-       * The agent will know it should avoid any death threats (equivalent to penalty) and should collect resources (equivalent to rewards)
-       * As of current, we decided to have only one exit, but this may change as the project progresses.
+       * A (not necessarily randomly generated) map with blocks, spreading fire, and food resources. There will be three exits, and our agent should find an exit in the shortest time without dying.
+       * The agent will know that it should avoid any death threats (equivalent to penalty).
 
   * Output/Result:
-       * A good result will have the agent escape from the fire and would have the agent collect as many resources as possible.
-       * A negative result would be the agent dying in the farm.
+       * A good result will have the agent escape from the fire in a reasonable amount of time while having collected resources.
+       * A negative result would be the agent dying from the fire.
 
-In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials could be more efficient and safer.
+In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. Assuming that the environment can have single or multiple exits, our robot can find efficient escape routes and simultaneously collect resources, while there is an eminent threat that grows in size. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials could be more efficient and safer.
 
-## Algorithm 
+### Algorithm 
 
 We anticipate that we will be using reinforcement learning with a specificity in Q-learning. Since the agent will have little knowledge about its surroundings in the beginning, it will “learn” the series of best actions while playing the game multiple times.
 
-## Evaluation
+### Evaluation
 
-We will evaluate our agent’s performance based on how much time is spent on each farm and the total number of resources collected.
+We will evaluate our agent’s performance based on how much time is spent on a map and the total number of resources collected.
 
 **Quantitative Evaluation**
 
@@ -49,6 +48,7 @@ To verify that our algorithm works, we will be recording the time the agent spen
 We hope that our agent can perform well in more complicated worlds, not only in an environment where a farm is on fire.
 
 
-## Appointment with the Instructor
+### Appointment with the Instructor
 
 22 April 2019, 10-10:15 am at DBH 4082
+
