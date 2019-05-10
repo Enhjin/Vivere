@@ -5,10 +5,6 @@ title:  Home
 
 <img src="https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png" alt="Minecraft" align="middle">
 
-<center>
-![alt text](https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png "Minecraft")
-</center>
-
 
 ### Welcome to Viviere's Team Page! 
 
