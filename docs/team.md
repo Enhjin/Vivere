@@ -7,10 +7,13 @@ title: Team Member Details
 
 
 **Enji Enkhjargal**
+
 ***UCI Net ID***: eenkhjar
 
 **Maxine Yuan**
+
 ***UCI Net ID***: mtyuan
 
 **Xinxin Xie**
+
 ***UCI Net ID***: xinxinx2
