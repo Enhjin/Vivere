@@ -9,6 +9,7 @@ title: Proposal
        * A (not necessarily randomly generated) map with blocks, spreading fire, and food resources. There will be three exits, and our agent should find an exit in the shortest time without dying.
        * The agent will know that it should avoid any death threats (equivalent to penalty).
 
+
   * Output/Result:
        * A good result will have the agent escape from the fire in a reasonable amount of time while having collected resources.
        * A negative result would be the agent dying from the fire.
