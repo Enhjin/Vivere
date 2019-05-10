@@ -2,7 +2,7 @@
 layout: default
 title: Proposal
 ---
-### Summary of the project
+### Summary of the Project
   This project will create something similar to that of an “escape room.”
 
   * Input:
@@ -53,3 +53,5 @@ We hope that our agent can perform well in more complicated worlds, not only in 
 
 22 April 2019, 10-10:15 am at DBH 4082
 
+
+end
