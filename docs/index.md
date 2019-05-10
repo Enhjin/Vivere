@@ -6,10 +6,13 @@ title:  Home
 ![alt text](https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png "Minecraft")
 
 
-### Welcome to Viviere's Team Page! Our team consists of three members:
-* Enkhjin Enkhjargal
-* Maxine Yuan
-* Xinxin Xie
+### Welcome to Viviere's Team Page! 
+
+#### Our team consists of three members:
+
+> * Enkhjin Enkhjargal
+> * Maxine Yuan
+> * Xinxin Xie
 
 ---
 
