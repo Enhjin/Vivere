@@ -3,7 +3,7 @@ layout: default
 title:  Home
 ---
 
-(setq markdown-css-paths '("https://enhjin.github.io/Vivere/index.css"))
+!(https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png "Minecraft")
 
 Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
 
