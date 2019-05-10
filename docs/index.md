@@ -3,7 +3,9 @@ layout: default
 title:  Home
 ---
 
+{:.center}
 ![alt text](https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png "Minecraft")
+
 
 
 ### Welcome to Viviere's Team Page! 
@@ -24,11 +26,14 @@ For more information and details, visit the [Proposal](proposal.html) page.
 ---
 
 ### Beginning
-To start this project, we first created one 10x10 and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce four maps by rotating the map. Below is an example of our map design for our 10x10. O
+To start this project, we first created one 10x10 and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce four maps by rotating the map. Below is an example of our map design for our 10x10. 
 
-* Green blocks denote a start/exit
-* Orange blocks denote blocks - places where the agent does not have access to.
-* Red block is where the fire will begin.
+> * Green blocks denote a start/exit
+> * Orange blocks denote blocks - places where the agent does not have access to.
+> * Red block is where the fire will begin.
+
+{: .center-image, height="500px", width="500px"}
+![alt text](https://raw.githubusercontent.com/Enhjin/Vivere/master/10x10.jpg "10x10")
 
 Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
 
