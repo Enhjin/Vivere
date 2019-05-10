@@ -3,7 +3,9 @@ layout: default
 title:  Home
 ---
 
-<img src="https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png" alt="Minecraft" align="middle">
+<center>
+![alt text](https://gonintendo.com/system/file_uploads/uploads/000/041/527/original/minecraft-600x333.png "Minecraft")
+</center>
 
 
 ### Welcome to Viviere's Team Page! 
@@ -30,8 +32,7 @@ To start this project, we first created one 10x10 and one 15x15 map. Under the a
 > * Orange blocks denote blocks - places where the agent does not have access to.
 > * Red block is where the fire will begin.
 
-{: .center-image, height="500px", width="500px"}
-![alt text](https://raw.githubusercontent.com/Enhjin/Vivere/master/10x10.jpg "10x10")
+![alt text](https://raw.githubusercontent.com/Enhjin/Vivere/master/10x10.jpg "10x10"){ width="600" height="600" style="display: block; margin: 0 auto" }
 
 Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
 
