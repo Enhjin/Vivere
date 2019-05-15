@@ -26,7 +26,7 @@ import os
 import sys
 import time
 import malmoutils
-from generate_maze import maze_to_str
+import generate_maze as gm
 
 if sys.version_info[0] == 2:
     # Workaround for https://github.com/PythonCharmers/python-future/issues/262
@@ -40,7 +40,12 @@ if save_images:
 
 malmoutils.fix_print()
 
-map_xml = maze_to_str(5, 5)
+# Test Maze
+maze = gm.Maze(10, 10)
+map_xml = maze.generate_xml()
+start_pos_xml = maze.get_start_xml()
+
+# start
 missionXML='''<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
             <Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             
@@ -74,7 +79,7 @@ missionXML='''<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
               <AgentSection mode="Survival">
                   <Name>Survivor</Name>
                   <AgentStart>
-                      <Placement x="2" y="227" z="3" yaw="0"/>
+                      {1}
                       <Inventory>
                       </Inventory>
                   </AgentStart>
@@ -91,7 +96,7 @@ missionXML='''<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
                   </AgentHandlers>
               </AgentSection>
               
-            </Mission>'''.format(map_xml)
+            </Mission>'''.format(map_xml, start_pos_xml)
 
 if sys.version_info[0] == 2:
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)  # flush print output immediately
