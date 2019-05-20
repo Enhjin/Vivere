@@ -2,11 +2,11 @@
             <Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
               <About>
-                <Summary>Hello world!</Summary>
+                <Summary>Survive the farm fire!</Summary>
               </About>
 
               <ModSettings>
-                  <MsPerTick>75</MsPerTick>
+                  <MsPerTick>25</MsPerTick>
               </ModSettings>
 
               <ServerSection>
@@ -78,36 +78,47 @@
                     <DrawCuboid x1="0" y1="227" z1="4" x2="0" y2="246" z2="-5" type="beacon"/>
                     <DrawCuboid x1="-11" y1="227" z1="4" x2="-11" y2="246" z2="-5" type="beacon"/>
 
+                    <DrawCuboid x1="-2" y1="227" z1="-5" x2="-2" y2="227" z2="-5" type="fire"/>
+
                   </DrawingDecorator>
                   <ServerQuitWhenAnyAgentFinishes/>
-                  <ServerQuitFromTimeUp timeLimitMs="100000"/>
+                  <ServerQuitFromTimeUp timeLimitMs="90000"/>
                 </ServerHandlers>
               </ServerSection>
 
               <AgentSection mode="Survival">
                   <Name>Survivor</Name>
                   <AgentStart>
-                      <Placement x="-4" y="227" z="-5" yaw="0"/>
+                      <Placement x="-6.5" y="227" z="-4.5" yaw="0"/>
                       <Inventory>
                       </Inventory>
                   </AgentStart>
                   <AgentHandlers>
                       <ObservationFromFullStats/>
-                      <DiscreteMovementCommands/>
+                      <DiscreteMovementCommands>
+                          <ModifierList type="deny-list">
+                            <command>attack</command>
+                          </ModifierList>
+                      </DiscreteMovementCommands>
+                      <VideoProducer want_depth="false">
+                          <Width>640</Width>
+                          <Height>480</Height>
+                      </VideoProducer>
                       <ObservationFromGrid>
                           <Grid name="floor10x10">
-                              <min x="-6" y="0" z="0"/>
-                              <max x="3" y="0" z="9"/>
+                              <min x="-7" y="0" z="-7"/>
+                              <max x="8" y="0" z="8"/>
                           </Grid>
                       </ObservationFromGrid>
                       <RewardForTouchingBlockType>
-                          <Block reward="1000000000.0" type="emerald_block" behaviour="onceOnly"/>
-                          <Block reward="-100.0" type="fire" behaviour="onceOnly"/>
+                          <Block reward="100000000.0" type="emerald_block"/>
+                          <Block reward="-1000000.0" type="fire"/>
+                          <!-- <Block reward="100.0" type="carpet"/> -->
                       </RewardForTouchingBlockType>
-                      <RewardForSendingCommand reward="-10"/>
-                      <RewardForMissionEnd rewardForDeath="-10000">
-                          <Reward description="found_goal" reward="1000" />
-                          <Reward description="out_of_time" reward="-1000" />
+                      <RewardForSendingCommand reward="-100"/>
+                      <RewardForMissionEnd rewardForDeath="-10000.0">
+                          <Reward description="found_goal" reward="1000000.0" />
+                          <Reward description="out_of_time" reward="-10000.0" />
                       </RewardForMissionEnd>
                       <AgentQuitFromTouchingBlockType>
                           <Block type="emerald_block" description="found_goal" />

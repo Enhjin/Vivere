@@ -45,11 +45,11 @@ import plotting
 from collections import deque, namedtuple
 import numpy as np
 
-if sys.version_info[0] == 2:
-    # Workaround for https://github.com/PythonCharmers/python-future/issues/262
-    import Tkinter as tk
-else:
-    import tkinter as tk
+# if sys.version_info[0] == 2:
+#     # Workaround for https://github.com/PythonCharmers/python-future/issues/262
+#     import Tkinter as tk
+# else:
+#     import tkinter as tk
 
 malmoutils.fix_print()
 
@@ -71,7 +71,7 @@ class StateProcessor():
     def __init__(self):
         # Build the Tensorflow graph
         with tf.variable_scope("state_processor"):
-            self.input_state = tf.placeholder(shape=[10, 10, 1], dtype=tf.uint8)
+            self.input_state = tf.placeholder(shape=[16, 16, 1], dtype=tf.uint8)
             # self.output = tf.image.rgb_to_grayscale(self.input_state)
             self.output = self.input_state
             # self.output = tf.image.crop_to_bounding_box(self.output, 0, 0, 10, 10)
@@ -102,7 +102,7 @@ def gridProcess(state):
     Xpos = observations.get(u'XPos', 0)
     Zpos = observations.get(u'ZPos', 0)
     obs = np.array(grid)
-    obs = np.reshape(obs, [10, 10, 1])
+    obs = np.reshape(obs, [16, 16, 1])
     obs[(int)(5 + Zpos)][ (int)(10 + Xpos)] = "human"
 
     # for i in range(obs.shape[0]):
@@ -144,7 +144,7 @@ class Estimator():
 
         # Placeholders for our input
         # Our input are 1 RGB frames of shape 10, 10 each
-        self.X_pl = tf.placeholder(shape=[None, 10, 10, 4], dtype=tf.uint8, name="X")
+        self.X_pl = tf.placeholder(shape=[None, 16, 16, 4], dtype=tf.uint8, name="X")
         # The TD target value
         self.y_pl = tf.placeholder(shape=[None], dtype=tf.float32, name="y")
         # Integer id of which action was selected
@@ -295,7 +295,7 @@ def deep_q_learning(sess,
                     discount_factor=0.99,
                     epsilon_start=1.0,
                     epsilon_end=0.1,
-                    epsilon_decay_steps=500000,
+                    epsilon_decay_steps=50000,
                     batch_size=32,
                     record_video_every=100):
     """
@@ -331,8 +331,7 @@ def deep_q_learning(sess,
         my_mission = MalmoPython.MissionSpec(mission_xml, True)
     my_mission.removeAllCommandHandlers()
     my_mission.allowAllDiscreteMovementCommands()
-    # my_mission.requestVideo(320, 240)
-    my_mission.setViewpoint(1)
+    my_mission.setViewpoint(2)
     my_clients = MalmoPython.ClientPool()
     my_clients.add(MalmoPython.ClientInfo('127.0.0.1', 10000))  # add Minecraft machines here as available
 
@@ -398,23 +397,27 @@ def deep_q_learning(sess,
     while not world_state.has_mission_begun:
         print(".", end="")
         time.sleep(0.1)
+        print("Sleeping")
         world_state = agent_host.getWorldState()
         for error in world_state.errors:
             print("Error:", error.text)
     print()
 
-    world_state = agent_host.peekWorldState()
+    # world_state = agent_host.peekWorldState()
     while world_state.is_mission_running and all(e.text == '{}' for e in world_state.observations):
-        # print("Sleeping....")
+        print("Sleeping....")
         world_state = agent_host.peekWorldState()
 
     world_state = agent_host.getWorldState()
 
     # Populate the replay memory with initial experience
     print("Populating replay memory...")
+
     while world_state.number_of_observations_since_last_state <= 0:
-        print("Sleeping")
+        # print("Sleeping")
         time.sleep(0.1)
+        world_state = agent_host.peekWorldState()
+
     state = gridProcess(world_state) #MALMO ENVIRONMENT Grid world NEEDED HERE/ was env.reset()
     state = state_processor.process(sess, state)
     state = np.stack([state] * 4, axis=2)
@@ -428,35 +431,55 @@ def deep_q_learning(sess,
         # print("Sending command: ", actionSet[action])
         agent_host.sendCommand(actionSet[action])
         #checking if the mission is done
-        done = not world_state.is_mission_running
+        world_state = agent_host.peekWorldState()
         #Getting the reward from taking a step
         if world_state.number_of_rewards_since_last_state > 0:
-            reward = world_state.rewards[0].getValue()
+            reward = world_state.rewards[-1].getValue()
+            print("Just received the reward: %s on action: %s "%(reward, actionSet[action]))
         else:
             print("No reward")
             reward = 0
         #getting the next state
-        while world_state.number_of_observations_since_last_state <=0:
+        while world_state.number_of_observations_since_last_state <=0 and world_state.is_mission_running:
+            print("Sleeping")
             time.sleep(0.1)
-        next_state = gridProcess(world_state)
-        next_state = state_processor.process(sess, next_state)
-        next_state = np.append(state[:,:,1:], np.expand_dims(next_state, 2), axis=2)
-        replay_memory.append(Transition(state, action, reward, next_state, done))
-        if done:
+            world_state = agent_host.peekWorldState()
+
+        if world_state.is_mission_running:
+            next_state = gridProcess(world_state)
+            next_state = state_processor.process(sess, next_state)
+            next_state = np.append(state[:,:,1:], np.expand_dims(next_state, 2), axis=2)
+            done = not world_state.is_mission_running
+            replay_memory.append(Transition(state, action, reward, next_state, done))
+            state = next_state
+        else:
+            for retry in range(max_retries):
+                try:
+                    agent_host.startMission(my_mission, my_clients, my_mission_record, agentID, "%s" % (expID))
+                    break
+                except RuntimeError as e:
+                    if retry == max_retries - 1:
+                        print("Error starting mission:", e)
+                        exit(1)
+                    else:
+                        time.sleep(2.5)
+
+            world_state = agent_host.getWorldState()
             while not world_state.has_mission_begun:
                 print(".", end="")
                 time.sleep(0.1)
                 world_state = agent_host.getWorldState()
             world_state = agent_host.peekWorldState()
             while world_state.is_mission_running and all(e.text == '{}' for e in world_state.observations):
-                # print("Sleeping!!!")
                 world_state = agent_host.peekWorldState()
             world_state = agent_host.getWorldState()
+            if not world_state.is_mission_running:
+                print("Breaking")
+                break
             state = gridProcess(world_state) # Malmo GetworldState? / env.reset()
             state = state_processor.process(sess, state)
             state = np.stack([state] * 4, axis=2)
-        else:
-            state = next_state
+
     print("Finished populating memory")
 
     # Record videos
@@ -469,7 +492,7 @@ def deep_q_learning(sess,
     # NEED TO RECORD THE VIDEO AND SAVE TO THE SPECIFIED DIRECTORY
 
     for i_episode in range(num_episodes):
-        print("nd attempt", i_episode)
+        print("%s-th episode"%i_episode)
         if i_episode != 0:
             mission_file = agent_host.getStringArgument('mission_file')
             with open(mission_file, 'r') as f:
@@ -480,14 +503,13 @@ def deep_q_learning(sess,
             my_mission.allowAllDiscreteMovementCommands()
             # my_mission.requestVideo(320, 240)
             my_mission.forceWorldReset()
-            my_mission.setViewpoint(1)
+            my_mission.setViewpoint(2)
             my_clients = MalmoPython.ClientPool()
             my_clients.add(MalmoPython.ClientInfo('127.0.0.1', 10000))  # add Minecraft machines here as available
 
             max_retries = 3
             agentID = 0
             expID = 'Deep_q_learning '
-            my_mission.forceWorldReset()
 
             my_mission_record = malmoutils.get_default_recording_object(agent_host,
                                                                         "./save_%s-rep%d" % (expID, i))
@@ -514,9 +536,9 @@ def deep_q_learning(sess,
 
         # Save the current checkpoint
         saver.save(tf.get_default_session(), checkpoint_path)
-        world_state = agent_host.getWorldState()
+        # world_state = agent_host.getWorldState()
         # Reset the environment
-        world_state = agent_host.peekWorldState()
+        # world_state = agent_host.peekWorldState()
         while world_state.is_mission_running and all(e.text == '{}' for e in world_state.observations):
             # print("Sleeping!!!")
             world_state = agent_host.peekWorldState()
@@ -556,11 +578,9 @@ def deep_q_learning(sess,
 
             world_state = agent_host.peekWorldState()
 
-            done = not world_state.is_mission_running
-
-            print("IS MISSION FINISHED? ", done)
             if world_state.number_of_rewards_since_last_state > 0:
-                reward = world_state.rewards[0].getValue()
+                reward = world_state.rewards[-1].getValue()
+                print("Just received the reward: %s on action: %s " % (reward, actionSet[action]))
             else:
                 print("No reward")
                 reward = 0
@@ -568,9 +588,20 @@ def deep_q_learning(sess,
                 # print("Sleeping!!!")
                 world_state = agent_host.peekWorldState()
             # world_state = agent_host.getWorldState()
+            # if not world_state.is_mission_running:
+            #     print("Breaking")
+            #     break
+            done = not world_state.is_mission_running
+            print(" IS MISSION FINISHED? ", done)
+            # if done:
+            #     print("Breaking before updating last reward")
+            #     break
+
             next_state = gridProcess(world_state)
             next_state = state_processor.process(sess, next_state)
             next_state = np.append(state[:,:,1:], np.expand_dims(next_state, 2), axis=2)
+
+
 
             # If our replay memory is full, pop the first element
             if len(replay_memory) == replay_memory_size:
@@ -642,15 +673,15 @@ if not os.path.exists(mission_file):
 # add some args
 agent_host.addOptionalStringArgument('mission_file',
                                      'Path/to/file from which to load the mission.', mission_file)
-agent_host.addOptionalFloatArgument('alpha',
-                                    'Learning rate of the Q-learning agent.', 0.1)
-agent_host.addOptionalFloatArgument('epsilon',
-                                    'Exploration rate of the Q-learning agent.', 0.01)
-agent_host.addOptionalFloatArgument('gamma', 'Discount factor.', 0.99)
+# agent_host.addOptionalFloatArgument('alpha',
+#                                     'Learning rate of the Q-learning agent.', 0.1)
+# agent_host.addOptionalFloatArgument('epsilon',
+#                                     'Exploration rate of the Q-learning agent.', 0.01)
+# agent_host.addOptionalFloatArgument('gamma', 'Discount factor.', 0.99)
 agent_host.addOptionalFlag('load_model', 'Load initial model from model_file.')
 agent_host.addOptionalStringArgument('model_file', 'Path to the initial model file', '')
 agent_host.addOptionalFlag('debug', 'Turn on debugging.')
-
+agent_host.setRewardsPolicy(MalmoPython.RewardsPolicy.LATEST_REWARD_ONLY)
 malmoutils.parse_command_line(agent_host)
 
 
@@ -681,9 +712,9 @@ with tf.Session() as sess:
                                     state_processor=state_processor,
                                     experiment_dir=experiment_dir,
                                     num_episodes=10000,
-                                    replay_memory_size=20000,
-                                    replay_memory_init_size=2000,
-                                    update_target_estimator_every=500,
+                                    replay_memory_size=500000,
+                                    replay_memory_init_size=5000,
+                                    update_target_estimator_every=10000,
                                     epsilon_start=1.0,
                                     epsilon_end=0.1,
                                     epsilon_decay_steps=500000,
