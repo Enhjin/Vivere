@@ -19,14 +19,14 @@ title:  Home
 ---
 
 ### What is Vivere?
-Vivere in Latin means "life." We chose this based on our project idea: artificial intelligence in malmo will be trapped in a maze and must escape. However, within this maze, is an increasingly spreading fire and resources. Our aim for our AI is to be able to find an exist (out of three) and escape in a fast time while having collected food resources.
+Vivere in Latin means "life." We chose this based on our project idea: an artificial intelligence, built within malmo, will be trapped in a maze and must escape. However, within this maze, is an increasingly spreading fire and resources. Our aim for our AI is to be able to find an exist (out of multiple ones) and escape in a fast time while having collected food resources.
 
 For more information and details, visit the [Proposal](proposal.html) page.
 
 ---
 
 ### Beginning
-To start this project, we first created one 10x10 and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce four maps by rotating the map. Below is an example of our map design for our 10x10. 
+To start this project, we first created one 5x5, one 10x10, and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce four maps by rotating the map. Below is an example of our map design for our 5x5. 
 
 > * Green blocks denote a start/exit
 > * Orange blocks denote blocks - places where the agent does not have access to.
