@@ -26,7 +26,7 @@ For more information and details, visit the [Proposal](proposal.html) page.
 ---
 
 ### Beginning
-To start this project, we first created one 5x5, one 10x10, and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce four maps by rotating the map. Below is an example of our map design for our 5x5. 
+To start this project, we first created one 5x5, one 10x10, and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce a number of maps by rotating it. Below is an example of our map design for our 5x5. 
 
 > * Green blocks denote a start/exit
 > * Orange blocks denote blocks - places where the agent does not have access to.
