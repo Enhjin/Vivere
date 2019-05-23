@@ -33,7 +33,7 @@ To start this project, we first created one 5x5, one 10x10, and one 15x15 map. U
 > * Red block is where the fire will begin.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/10x10.jpg" alt="Image" width="500" height="500" />
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/5x5.jpg" alt="Image" width="500" height="500" />
 </p>
 
 To see more of our starting point from the progress, visit the [Status](status.html) page.
