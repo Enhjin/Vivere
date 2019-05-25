@@ -41,7 +41,7 @@ if save_images:
 malmoutils.fix_print()
 
 # Test Maze
-maze = gm.Maze(10, 10)
+maze = gm.Maze(15, 15)
 map_xml = maze.generate_xml()
 start_pos_xml = maze.get_start_xml()
 
