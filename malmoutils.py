@@ -100,3 +100,4 @@ def get_recordings_directory(agent_host):
             if exception.errno != errno.EEXIST: # ignore error if already existed
                 raise
     return recordingsDirectory
+
