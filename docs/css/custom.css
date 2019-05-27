@@ -116,6 +116,7 @@ pre {
   padding: .5rem;
   line-height: 1.25;
   overflow-x: hidden;
+  overflow-wrap: break-word;
 }
 
 a,
