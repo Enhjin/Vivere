@@ -8,7 +8,7 @@ title:  Home
 </p>
 
 
-### Welcome to Viviere's Team Page! 
+### Welcome to Vivere's Team Page! 
 
 #### Our team consists of three members:
 
