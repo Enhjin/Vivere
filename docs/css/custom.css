@@ -133,13 +133,13 @@ html {
   font-size: 12px;
 }
 
-@media screen and (min-width: 20rem) {
+@media screen and (min-width: 32rem) {
   html {
     font-size: 15px;
   }
 }
 
-@media screen and (min-width: 20rem) {
+@media screen and (min-width: 32rem) {
   html {
     font-size: 16px;
   }
