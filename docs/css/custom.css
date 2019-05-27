@@ -236,11 +236,11 @@ body {
   color: #444;
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 300;
-  margin: 0 auto;
-  /*min-width: 32rem;
-  max-width: 60rem;*/
+  /*margin: 0 auto;
+  min-width: 32rem;
+  max-width: 60rem;
   line-height: 1.45;
-  padding: .25rem;
+*/  padding: .25rem;
 }
 
 h1,
