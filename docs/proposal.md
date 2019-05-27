@@ -27,7 +27,7 @@ We will evaluate our agent’s performance based on how many steps it takes to f
 
 *Metrics and Baseline*
 
-> Our quantitative metrics specifically aim at the number of steps taken to escape the farm and the number of resources the agent  collects. The baseline is to have the agent safely escape the farm and to have it collect at least 1 resource. We decided to include a baseline for the resource - at least collect 1 resource - otherwise, the agent would simply escape the farm without collecting anything.
+> Our quantitative metrics specifically aim at the number of steps taken to escape the farm and the number of resources the agent  collects. The baseline is to have the agent safely escape the farm and to have it collect at least 1 resource. We decided to include a baseline for the resource - to collect at least 1 resource - otherwise, the agent would simply escape the farm without collecting anything.
 
 *Expectation in Performance Improvement*
 
