@@ -13,7 +13,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding: 3rem;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
@@ -133,13 +133,13 @@ html {
   font-size: 12px;
 }
 
-@media screen and (min-width: 32rem) and (max-width: 48rem) {
+@media screen and (min-width: 20rem) {
   html {
     font-size: 15px;
   }
 }
 
-@media screen and (min-width: 32rem) {
+@media screen and (min-width: 20rem) {
   html {
     font-size: 16px;
   }
