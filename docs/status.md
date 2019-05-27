@@ -16,4 +16,6 @@ As a status report, we decided to change the baseline of our progress such that 
 
 ### Resources Used
 
-### Videos
+### Video
+
+<a href="https://drive.google.com/uc?export=view&id=1Hp_ZBlknbKXRT_ZASLXCVBGD5MEo6-jA"><img src="http://drive.google.com/uc?export=view&id=1Hp_ZBlknbKXRT_ZASLXCVBGD5MEo6-jA" style="width: 500px; max-width: 100%; height: auto" title="Vivere: Status Report Video." /></a>
