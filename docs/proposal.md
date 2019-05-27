@@ -5,14 +5,14 @@ title: Proposal
 ### Summary of the Project
   This project will create something similar to that of an “escape room.”
 
->  * Input:
-       * A (not necessarily randomly generated) map with blocks, spreading fire, and food resources. There will be multiple exits, and our agent should find an exit with a minimal number of steps without dying.
-       * The agent will know that it should avoid any death threats (equivalent to penalty).
+>  Input:
+   >> * A (not necessarily randomly generated) map with blocks, spreading fire, and food resources. There will be multiple exits, and our agent should find an exit with a minimal number of steps without dying.
+   >> * The agent will know that it should avoid any death threats (equivalent to penalty).
 
 
->  * Output/Result:
-       * A good result will have the agent escape from the fire in a minimal number of steps while having collected resources.
-       * A negative result would be the agent dying from the fire.
+>  Output/Result:
+   >> * A good result will have the agent escape from the fire in a minimal number of steps while having collected resources.
+   >> * A negative result would be the agent dying from the fire.
 
 In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. Assuming that the environment can have single or multiple exits, our robot can find efficient escape routes and simultaneously collect resources, while there is an eminent threat that grows in size. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials could be more efficient and safer.
 
