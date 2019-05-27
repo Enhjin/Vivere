@@ -137,7 +137,7 @@ html {
   font-size: 12px;
 }
 
-@media screen and (min-width: 16rem) and (max-width: 48rem) {
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
   html {
     font-size: 15px;
   }
