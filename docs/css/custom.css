@@ -13,7 +13,10 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0rem;
   width: 100%;
   /* Set the fixed height of the footer here */
   min-height: 40px;
