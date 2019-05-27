@@ -236,7 +236,8 @@ body {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 300;
   margin: 0 auto;
-  max-width: 48rem;
+  min-width: 32rem;
+  max-width: 60rem;
   line-height: 1.45;
   padding: .25rem;
 }
