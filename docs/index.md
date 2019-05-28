@@ -29,7 +29,7 @@ For more information and details, visit the [Proposal](proposal.html) page.
 To start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading.  To ensure our agent is not overfitting on one kind of map, we used this program to generate random maps for our agent to train and test. After the maze is built, we spawn the agent in a random location. The image below shows the final result of a randomly generated 5x5 sized maze. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="Result" />
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="Result"  width="600" height="600"/>
 </p>
 
 To see more of our status report, visit the [Status](status.html) page.
