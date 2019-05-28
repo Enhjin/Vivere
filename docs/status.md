@@ -19,16 +19,11 @@ For this project, we decided to use the Deep-Q Learning algorithm which uses gre
 
 We used this formula in our algorithm and defined the variables as followed:
 * S: the current state which is the grid observation (ie a birds eye view of the map). It includes the information of our maze and the surroundings relative to the agent. Alternatively, the agent is able to see its surroundings as 9x9 grid, where the agent is at the center of it
-
 * S’: Next state after taking action A’
-
 * A: the current action that our agent will take. Currently, our agent can make four moves \[move north, move south, move east, move west\]. As of yet, it cannot pick up resources as it aims to find the exit in a minimal number of steps.
-
 * A’: the future action 
-
 * R: is our expected reward based on the action our agent takes.
-
-* $gamma$ (gamma): Discount factor. We set our gamma = 0.99 as that is the staple norm in Q-learning.
+* &gamma; (gamma): Discount factor. We set our gamma = 0.99 as that is the staple norm in Q-learning.
 
 We used Tensorflow to build our Neural Network, and our network consists of three convolutional layers, followed by 2 fully connected layers. The last fully connected layer outputs values from 0-3 which is mapped to our action space. As for our input to the network, we used a little trick. Malmo offers a feature to observe the surrounding blocks by <ObservationFromGrid> tag in the mission XML file, and we get it from Malmo via a JSON file as a 2D array. We then convert that 2D array as a pixel representation of the grid and feed it to the Neural Network as a grayscale image. 
 
@@ -46,7 +41,6 @@ The techniques we used for our DQN is the Experience Replay Memory and uses two 
 To evaluate our progress, we used one of Tensorflow features, Tensorboard, to display the metrics. With the help of Tensorflow and Tensorboard in  our approach, we were able to obtain a graphical model of our data and its trends to ensure that our agent is working properly such that it fulfills our sanity case - that our agent does not constantly die in the fire.
 
 Another big part of our project is generating a random maze. The user can choose their maze size and generate a random maze XML file. In order to avoid our agent from overfitting to only one map, we incorporated multiple random mazes into our training process. Every 20 episodes, we randomly choose from one of our randomly generated mazes and train the agent on that map. Even during Experience Replay Memory initialization, every 20 step, we change the maze. Doing this increases our training time and makes it harder for the agent to learn, but prevents the agent from overfitting to one specific map and help our agent to perform well on unseen test map. 
-
 
 
 ### Evaluation
