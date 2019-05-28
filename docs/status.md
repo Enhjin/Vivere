@@ -13,8 +13,7 @@ As a status report, we decided to change the baseline of our progress such that 
 For this project, we decided to use the Deep-Q Learning algorithm which uses greedy-epsilon based policy. Deep-Q Learning is based on the following:
 
 <p align="center">
-    <img src="http://simplecore-dev.intel.com/ai/wp-content/uploads/sites/71/bellman-equation-example.png" alt="Bellman Ford Equation" />
-</p>
+    <img src="http://simplecore-dev.intel.com/ai/wp-content/uploads/sites/71/bellman-equation-example.png" alt="Bellman Ford Equation"/></p>
 <center><sub>Figure 1: Bellman Equation for Optimality<sub>1</sub></sub></center> 
 
 We used this formula in our algorithm and defined the variables as followed:
@@ -34,8 +33,7 @@ The techniques we used for our DQN is the Experience Replay Memory and uses two 
 * The Target Network is used for calculating our loss and updates every N number of episodes. For our loss value, we use the squared differences of the Q-network and Target Network and performed gradient descent on it.
  
  <p align="center">
-    <img src="http://simplecore-dev.intel.com/ai/wp-content/uploads/sites/71/q-learning-equation.png" alt="Loss Function" />
-</p>
+    <img src="http://simplecore-dev.intel.com/ai/wp-content/uploads/sites/71/q-learning-equation.png" alt="Loss Function" /></p>
 <center><sub>Figure 2: Loss Function<sub>2</sub></sub></center> 
 
 To evaluate our progress, we used one of Tensorflow features, Tensorboard, to display the metrics. With the help of Tensorflow and Tensorboard in  our approach, we were able to obtain a graphical model of our data and its trends to ensure that our agent is working properly such that it fulfills our sanity case - that our agent does not constantly die in the fire.
@@ -44,6 +42,26 @@ Another big part of our project is generating a random maze. The user can choose
 
 
 ### Evaluation
+
+As an overview, we decided on the following factors for our analysis:
+
+*Baseline:*
+> Our previous baseline is so that the agent does not die in the fire and is able to find the exit. However, for this status report, our baseline changed such that the a random agent can perform random movements until it either dies to the spreading fire or exits the maze by luck.
+
+*Quantitative Analysis for Status Report:*
+> The number of steps taken to find the exit. Ideally, we would want the number of steps to have a general decreasing trend on a graph.
+> During the training process, we should see an increase in the reward. It indicates that agent is solving the maze quicker each time, since there is a penalty for each extra move the agent makes.
+
+*Qualitative Analysis for Status Report:*
+> The agent does not run into the fire and die; alternatively, the agent is able to escape the fire, should it run into it.
+
+The following graphs represent our current progress on the algorithm and agent’s performance.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episode_length.png" alt="Graph 1: Episode Length" /></p>
+<center><sub>Graph 1: Episode Length</sub></center> 
+
+Graph 1 demonstrates our overall trend on the episode length. Specifically, it is measured through the number of steps, or, rather, actions taken by the agent. Overall, it took a total of 20,000 steps during training and the general trend of the episode length decreases throughout the graph. This trend is supported in our following graphs of the episode reward, epsilon, loss per steps (i.e., error rate), and the max Q-value.
 
 
 
