@@ -40,7 +40,6 @@ To evaluate our progress, we used one of Tensorflow features, Tensorboard, to di
 
 Another big part of our project is generating a random maze. The user can choose their maze size and generate a random maze XML file. In order to avoid our agent from overfitting to only one map, we incorporated multiple random mazes into our training process. Every 20 episodes, we randomly choose from one of our randomly generated mazes and train the agent on that map. Even during Experience Replay Memory initialization, every 20 step, we change the maze. Doing this increases our training time and makes it harder for the agent to learn, but prevents the agent from overfitting to one specific map and help our agent to perform well on unseen test map. 
 
-
 ### Evaluation
 
 As an overview, we decided on the following factors for our analysis:
@@ -59,17 +58,61 @@ The following graphs represent our current progress on the algorithm and agent�
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episode_length.png" alt="Graph 1: Episode Length" /></p>
-<center><sub>Graph 1: Episode Length</sub></center> 
+<center><sub>Graph 1: Episode Length. It shows the general trend of our episode lengths throughout the training.</sub></center> 
 
 Graph 1 demonstrates our overall trend on the episode length. Specifically, it is measured through the number of steps, or, rather, actions taken by the agent. Overall, it took a total of 20,000 steps during training and the general trend of the episode length decreases throughout the graph. This trend is supported in our following graphs of the episode reward, epsilon, loss per steps (i.e., error rate), and the max Q-value.
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episode_reward.png" alt="Graph 2: Episode Reward" /></p>
+<center><sub>Graph 2: Episode Reward. The general trend in the reward.</sub></center>
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episilon.png" alt="Graph 3: Epsilon" /></p>
+<center><sub>Graph 3: Epsilon. The overall change of our epsilon value (eg chance of random action).</sub></center>
+
+With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or mission ends prematurely, i.e., run out of time or burned to death. 
+
+> The following displays our reward system:
+> * Reaching a goal, in our case touching an emerald block: +100
+> * Touching a fire: -55
+> * Touching inner maze wall: -20
+> * Dying: -10
+> * Making a move: -1
+
+We want our agent to have its reward increasing to show that it is learning throughout its training sessions. Thus, the episode reward is relative to the number of steps the agent has taken. We estimate our graph to have numerous downward spikes due to our epsilon value - where our agent takes a random action as a way to explore the maze or its environment and avoid suboptimal convergence. However, throughout the entire graph, we can see that it gradually converges and stabilizes as epsilon decreases as seen in Graph 3.
+
+The general trend with epsilon starts at 1, and in Deep-Q learning, we should aim for epsilon to decrease to 0.1 such that the agent no longer or seldom takes random actions. At 20,000 steps (as corresponding to our episode reward and episode length graph), our epsilon has decreased to 0.63. Ideally, if more training were done with a greater number of steps taken (eg as we reach ~50,000 steps), we would be able to see epsilon closer to the value 0.1.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/loss.png" alt="Graph 4: Loss" /></p>
+<center><sub>Graph 4: Loss. This graph shows our general loss throughout training.</sub></center>
+
+In machine learning, we aim to minimize our loss, or rather, the error rate as we train our agent. With Deep Q-learning, the agent should predict a move and its reward and select the action that will provide it with the highest reward. To ensure that our agent was minimizing its losses, we graphed the overall trend of our agent in respect to its error rate (Graph 4). We can see here that the error gradually decreases in respect to the number of steps our agent has taken. This finally leads us to our overall maximum Q-value trend.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/max_q_value.png" alt="Graph 5: Max Q-Value" /></p>
+<center><sub>Graph 5: Max Q-Value</sub></center>
+
+Overall, our maximum Q-value increases which denotes a higher trend in performance in respect to the number of total steps taken. Our goal is to maximize the Q-value so that it helps the agent predict the next best action based on the expected reward. With a higher Q-value, it can thus choose the next best action and thereby minimizing loss.
+
+We trained our agent for approximately 3 hours and 40 minutes. It is important to note, however, that the fire acts and spreads randomly and is beyond our control. Consequently, this made it extremely difficult to train the agent so that the agent can dodge the fire. On bigger maps, it would take longer (i.e, days of training) and a larger neural network.
 
 ### Remaining Goals and Challenges
 
+Currently, our agent works in a 5x5 environment. Originally, we had planned a 10x10 environment shown below but realized that after a number of training episodes, our agent became ‘dumber’ and was performing worse as time went on (eg taking a longer time to find the exit, dying in the fire more, etc). After consulting with the Professor and TA, we realized that in order for our agent to work in a larger environment, more complicated factors need to be considered (eg better policy-based learning in our neural network as opposed to a greedy-epsilon policy). Since this became a road block part way through our project, we decided to settle for a smaller 5x5 map, rather than our 10x10 map, to ensure our agent is working correctly. In the coming weeks, we hope to get our agent to work on 10x10 maps and/or maps that are larger than 5x5.
 
+In addition, we aim to have resources (e.g., food in Minecraft) implemented for our agent to collect. As of now, we are focusing on ensuring that our agent learns properly in the given environment. 
 
 ### Resources Used
+
+\[1\], \[2\]. 
+Matiisen, Tambet. "Guest Post (Part I): Demystifying Deep Reinforcement Learning."  Intel AI, Intel. Date Published on 22 December 2015. URL. https://www.intel.ai/demystifying-deep-reinforcement-learning/#gs.eggq2z
+
+Britz, Denny. Reinforcement Learning.(2019). GitHub Repository. https://github.com/dennybritz/reinforcement-learning/tree/master/DQN 
+
+Juliani, Arthur. "Simple Reinforcement Learning with Tensorflow Part 4: Deep Q-Networks and Beyond." Medium, Medium, Date Published on 2 September 2016. URL. https://medium.com/@awjuliani/simple-reinforcement-learning-with-tensorflow-part-4-deep-q-networks-and-beyond-8438a3e2b8df
+
+Tabular_learning.py tutorial, included in Malmo
 
 ### Video
 
