@@ -8,16 +8,18 @@ Our project is similar to that of an “escape room,” where the agent must fin
 
 ### Approach
 
-Aforementioned on our home page...: to start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading.  To ensure our agent is not overfitting on one kind of map, we used this program to generate random maps for our agent to train and test. After the maze is built, we spawn the agent in a random location. The image below shows the final result of a randomly generated 5x5 sized maze. 
+Aforementioned on our home page...: to start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading. It is important to note the material of the generated map. We decided to set the material of the floor to be carpet so that the fire can spread; however, in Minecraft, it is normal for the fire to go out after a certain period of time. To battle this, we put netherrack blocks below the carpet so that when the carpet burns out, the fire continues and never estinguishes. In order to have our fire spread in a 'controlled path,' we used sea lanterns to prevent the fire from spreading in a certain direction. 
+
+To avoid overfitting our agent on one kind of map, we used this program to generate random mazes for our agent to train and test. After the maze is built, we spawn the agent in a random location. The image below shows the final result of a randomly generated 5x5 sized maze. 
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="Result"  width="600" height="600"/>
 </p>
-<center><sub>Image 1 (Above): An example where of our randomly generated maze with fire.</sub></center> 
+<center><sub>Image 1 (Above): An example of our randomly generated maze with fire.</sub></center> 
 
-As of yet, we have not implemented any resources within the maze.
+As of yet, we have not implemented any resources within the program.
 
-We decided to use the Deep-Q Learning algorithm which uses greedy-epsilon based policy. Deep-Q Learning is based on the following:
+For the artificial intelligence, we decided to use the Deep-Q Learning algorithm which uses greedy-epsilon based policy. Deep-Q Learning is based on the following:
 
 <p align="center">
     <img src="http://simplecore-dev.intel.com/ai/wp-content/uploads/sites/71/bellman-equation-example.png" alt="Bellman Ford Equation"/></p>
@@ -103,7 +105,7 @@ In machine learning, we aim to minimize our loss, or rather, the error rate as w
 
 Overall, our maximum Q-value increases which denotes a higher trend in performance in respect to the number of total steps taken. Our goal is to maximize the Q-value so that it helps the agent predict the next best action based on the expected reward. With a higher Q-value, it can thus choose the next best action and thereby minimizing loss.
 
-We trained our agent for approximately 3 hours and 40 minutes. It is important to note, however, that the fire acts and spreads randomly and is beyond our control. Consequently, this made it extremely difficult to train the agent so that the agent can dodge the fire. On bigger maps, it would take longer (i.e, days of training) and a larger neural network.
+We trained our agent for approximately 3 hours and 40 minutes. It is important to note, however, that the fire acts and spreads randomly and is beyond our control in terms of its speed and direction(s) when the fire is not blocked by a sea lantern. Consequently, this made it extremely difficult to train the agent so that the agent can dodge the fire. On bigger maps, it would take longer (i.e, days of training) and a larger neural network.
 
 
 ### Remaining Goals and Challenges
