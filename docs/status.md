@@ -6,12 +6,18 @@ title: Status
 ### Summary of the Project
 Our project is similar to that of an “escape room,” where the agent must find an exit of a room, where the room is provided as an input, within a reasonable amount of time. However, the agent must avoid death as there is a fire that spreads throughout the map and should aim to recover resources along the way. As a result, dying is equivalent to a penalty and recovering resources and finding exits within a short amount of time (or with minimal steps) is essential to rewards.  
 
-As a status report, we decided to change the baseline of our progress such that our baseline is to have an agent that makes random moves. After accomplishing the baseline for this stage, the agent is able to find the exit in a minimal number of steps. Currently, we have not implemented any resources on the map.
-
-
 ### Approach
 
-For this project, we decided to use the Deep-Q Learning algorithm which uses greedy-epsilon based policy. Deep-Q Learning is based on the following:
+Aforementioned on our home page...: to start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading.  To ensure our agent is not overfitting on one kind of map, we used this program to generate random maps for our agent to train and test. After the maze is built, we spawn the agent in a random location. The image below shows the final result of a randomly generated 5x5 sized maze. 
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="Result"  width="600" height="600"/>
+</p>
+<center><sub>Image 1 (Above): An example where of our randomly generated maze with fire.</sub></center> 
+
+As of yet, we have not implemented any resources within the maze.
+
+We decided to use the Deep-Q Learning algorithm which uses greedy-epsilon based policy. Deep-Q Learning is based on the following:
 
 <p align="center">
     <img src="http://simplecore-dev.intel.com/ai/wp-content/uploads/sites/71/bellman-equation-example.png" alt="Bellman Ford Equation"/></p>
