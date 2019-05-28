@@ -17,6 +17,10 @@ As a status report, we decided to change the baseline of our progress such that 
 ### Resources Used
 
 ### Video
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/uiRR3c13AQ4" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
 
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/uiRR3c13AQ4" frameborder="0" allowfullscreen=""></iframe>
 
-<iframe src="https://drive.google.com/file/d/1Hp_ZBlknbKXRT_ZASLXCVBGD5MEo6-jA/preview" width="640" height="480"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uiRR3c13AQ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
