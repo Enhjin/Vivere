@@ -13,7 +13,7 @@ class Maze:
         self.grids = []
 
     def init_str(self):
-        init_xml_1 = '<DrawCuboid x1="{0}" y1="226" z1="{2}" x2="{1}" y2="246" z2="{3}" type="netherrack"/>\n'.format(0, self.w+1, 0, self.h+1)
+        init_xml_1 = '<DrawCuboid x1="{0}" y1="226" z1="{2}" x2="{1}" y2="246" z2="{3}" type="glass"/>\n'.format(0, self.w+1, 0, self.h+1)
         init_xml_2 = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="246" z2="{3}" type="air"/>\n'.format(1, self.w, 1, self.h)
         init_xml_3 = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="227" z2="{3}" type="sea_lantern"/>\n'.format(1, self.w, 1, self.h)
         return init_xml_1 + init_xml_2 + init_xml_3
@@ -75,7 +75,7 @@ class Maze:
         grid = self.generate_random_grids()
         # start and exits are in the middle range of the side and must be accessible
         # start is in the lower side
-        exit0 = random.randrange(2, self.w-2)
+        exit0 = random.randrange(3, self.w-2)
         if grid[self.h - 1][exit0] == 0:
             for i in range(5):
                 #set 5 of the cells as carpet, start is in the middle
@@ -83,7 +83,7 @@ class Maze:
         exit0 = (self.h - 1, exit0)
 
         #exit1
-        exit1 = random.randrange(2, self.w-2)
+        exit1 = random.randrange(3, self.w-2)
         if grid[0][exit1] == 0:
             for i in range(5):
                 #set 5 of the cells as 1
@@ -91,7 +91,7 @@ class Maze:
         exit1 = (0, exit1)
 
         #exit2 is on the left side
-        exit2 = random.randrange(2, self.h-2)
+        exit2 = random.randrange(3, self.h-2)
         if grid[exit2][0] == 0:
             for i in range(5):
                 #set 5 of the cells as 1
@@ -100,7 +100,7 @@ class Maze:
         exit2 = (exit2, 0)
 
         #exit3 is on the right side
-        exit3 = random.randrange(2, self.h-2)
+        exit3 = random.randrange(3, self.h-2)
         if grid[exit3][self.w-1] == 0:
             for i in range(5):
                 #set 5 of the cells as 1
@@ -120,6 +120,12 @@ class Maze:
             for j in range(self.w):
                 if grid[i][j] == 1:
                     carpet_str = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="227" z2="{3}" type="carpet"/>\n'.format(j+1, j+1, i+1, i+1)
+                    #there are 50% chance that blocks under carpet become netherrack
+                    temp = random.randint(0, 1)
+                    if temp == 0:
+                        nether_str = '<DrawCuboid x1="{0}" y1="226" z1="{2}" x2="{1}" y2="226" z2="{3}" type="netherrack"/>\n'.format(
+                            j + 1, j + 1, i + 1, i + 1)
+
                     str_xml = str_xml + carpet_str
 
         for k in range(0, len(key_cells)-1):
@@ -128,8 +134,10 @@ class Maze:
             key_grid_str = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="229" z2="{3}" type="emerald_block"/>\n'.format(j + 1, j + 1, i + 1, i + 1)
             str_xml = str_xml + key_grid_str
         # add fire block
-        key_grid_str = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="227" z2="{3}" type="fire"/>\n'.format(1,1,1,1)
+        # key_grid_str = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="227" z2="{3}" type="fire"/>\n'.format(1,1,1,1)
         str_xml = str_xml + key_grid_str
+
+
 
         return str_xml
 
@@ -142,17 +150,37 @@ class Maze:
                 if grid[i][j] == 1:
                     carpet_str = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="227" z2="{3}" type="carpet"/>\n'.format(j+1, j+1, i+1, i+1)
                     str_xml = str_xml + carpet_str
+                    temp = random.randint(0, 1)
+                    if temp == 0:
+                        nether_str = '<DrawCuboid x1="{0}" y1="226" z1="{2}" x2="{1}" y2="226" z2="{3}" type="netherrack"/>\n'.format(
+                            j + 1, j + 1, i + 1, i + 1)
+                        str_xml = str_xml + nether_str
 
         key_grid_str = ""
-        while key_grid_str == "":
+        while (len(key_cells) != 0):
             exit_cell = random.choice(key_cells)
+            key_cells.remove(exit_cell)
             i = exit_cell[0]
             j = exit_cell[1]
-            if (i != 0 or j != 2): #can not be the same position as the start
-                key_grid_str = '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="229" z2="{3}" type="emerald_block"/>\n'.format(j + 1, j + 1, i + 1, i + 1)
+            if i != 0: #can not be the same position as the start
+                key_grid_str += '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="229" z2="{3}" type="emerald_block"/>\n'.format(j + 1, j + 1, i + 1, i + 1)
+            # elif (i != 0 or j != 2) and key_grid_str != " ":
+            #     key_grid_str += '<DrawCuboid x1="{0}" y1="227" z1="{2}" x2="{1}" y2="229" z2="{3}" type="fire"/>\n'.format(j + 1, j + 1, i + 1, i + 1)
             else:
                 continue
         str_xml = str_xml + key_grid_str
+
+        beacon_str_1 = '<DrawCuboid x1="0" y1="227" z1="{1}" x2="{0}" y2="246" z2="{1}" type="beacon"/>\n'.format(self.w+1, self.h+1)
+        beacon_str_2 = '<DrawCuboid x1="0" y1="227" z1="{1}" x2="{0}" y2="246" z2="{1}" type="beacon"/>\n'.format(self.w+1, self.h+1)
+
+        beacon_str_3 = '<DrawCuboid x1="0" y1="227" z1="{1}" x2="{0}" y2="246" z2="{1}" type="beacon"/>\n'.format(self.w+1, self.h+1)
+
+        beacon_str_4 = '<DrawCuboid x1="0" y1="227" z1="{1}" x2="{0}" y2="246" z2="{1}" type="beacon"/>\n'.format(self.w+1, self.h+1)
+
+        beacon_str = beacon_str_1 + beacon_str_2 + beacon_str_3 + beacon_str_4
+
+        str_xml = str_xml + beacon_str
+
         return str_xml
 
     def get_start_xml(self):
