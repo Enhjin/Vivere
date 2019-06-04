@@ -1,16 +1,21 @@
 ---
 layout: default
-title:  Team Memeber Details
+title: Team Member Details
 ---
 
-# {{ page.title }}
+### {{ page.title }} ###
 
 
-## Enji Enkhjargal
+**Enji Enkhjargal**
+
 ***UCI Net ID***: eenkhjar
+* * *
 
-## Maxine Yuan
+**Maxine Yuan**
+
 ***UCI Net ID***: mtyuan
+* * *
 
-## Xinxin Xie 
+**Xinxin Xie**
+
 ***UCI Net ID***: xinxinx2
