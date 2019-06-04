@@ -10,19 +10,29 @@ body {
 }
 .footer {
   position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0rem;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  min-height: 40px;
   background-color: #f5f5f5;
+  margin-top: 40px;
+  margin-left: auto; 
+  margin-right: auto;
+  text-align: center;
 }
 
 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
-
-/*body > .container {
+/*
+body > .container {
   padding: 60px 15px 0;
 }
 .container .text-muted {
@@ -36,7 +46,9 @@ body {
 
 code {
   font-size: 80%;
-}*/
+}
+
+*/
 
 @media print {
   *,
@@ -106,7 +118,8 @@ code {
 pre {
   padding: .5rem;
   line-height: 1.25;
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
 }
 
 a,
@@ -134,7 +147,7 @@ html {
   }
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 24rem) {
   html {
     font-size: 16px;
   }
@@ -201,6 +214,8 @@ small,
 
 /* https://github.com/mrmrs/fluidity */
 
+
+
 img,
 canvas,
 iframe,
@@ -224,10 +239,11 @@ body {
   color: #444;
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 300;
-  margin: 0 auto;
-  max-width: 48rem;
+  /*margin: 0 auto;
+  min-width: 32rem;
+  max-width: 60rem;
   line-height: 1.45;
-  padding: .25rem;
+*/  padding: .25rem;
 }
 
 h1,
@@ -257,3 +273,5 @@ pre,
 code {
   background-color: #fafafa;
 }
+
+

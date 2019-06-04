@@ -11,7 +11,7 @@ import generate_maze as gm
 
 all_xml = []
 for i in range(40): #rotation makes 3 more maps
-    maze = gm.Maze(5, 5)
+    maze = gm.Maze(7, 7)
     xml = maze.generate_all_xml()
     all_xml.extend(xml)
 
@@ -45,8 +45,7 @@ for i in range(n):
                       <FlatWorldGenerator generatorString="3;7,220*1,5*3,2;3;,biome_1"/>
                       <DrawingDecorator>
                           {0}
-                          <DrawCuboid x1="1" y1="227" z1="1" x2="1" y2="227" z2="1" type="fire"/>
-                          
+
                       </DrawingDecorator>
                       <ServerQuitWhenAnyAgentFinishes/>
                       <ServerQuitFromTimeUp timeLimitMs="900000"/>
@@ -73,8 +72,8 @@ for i in range(n):
                           </VideoProducer>
                           <ObservationFromGrid>
                               <Grid name="floor10x10">
-                                  <min x="-4" y="0" z="-4"/>
-                                  <max x="4" y="0" z="4"/>
+                                  <min x="-6" y="0" z="-6"/>
+                                  <max x="6" y="0" z="6"/>
                               </Grid>
                           </ObservationFromGrid>
                           <RewardForTouchingBlockType>

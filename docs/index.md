@@ -8,7 +8,7 @@ title:  Home
 </p>
 
 
-### Welcome to Viviere's Team Page! 
+### Welcome to Vivere's Team Page! 
 
 #### Our team consists of three members:
 
@@ -25,17 +25,14 @@ For more information and details, visit the [Proposal](proposal.html) page.
 
 ---
 
-### Beginning
-To start this project, we first created one 5x5, one 10x10, and one 15x15 map. Under the advice from our Professor, we decided to use one map to produce a number of maps by rotating it. Below is an example of our map design for our 5x5. 
-
-> * Green blocks denote a start/exit
-> * Orange blocks denote blocks - places where the agent does not have access to.
-> * Red block is where the fire will begin.
+### Beginning & Status
+To start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading. It is important to note the material of the generated map. We decided to set the material of the floor to be carpet so that the fire can spread; however, in Minecraft, it is normal for the fire to go out after a certain period of time. To battle this, we put netherrack blocks below the carpet so that when the carpet burns out, the fire continues and never estinguishes. In order to have our fire spread in a somewhat 'controlled path' so that it does not spread everywhere, we used sea lanterns to prevent the fire from haphazardly spreading in any direction. The image below shows the final result of a randomly generated 5x5 sized maze.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/5x5.jpg" alt="Image" width="500" height="500" />
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="Result"  width="600" height="600"/>
 </p>
 
-To see more of our starting point from the progress, visit the [Status](status.html) page.
+To see more of our status report, visit the [Status](status.html) page.
+
 
 Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
