@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Home
+title:  Final Report
 ---
 
 ### Summary of the Project
