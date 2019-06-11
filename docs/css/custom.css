@@ -113,6 +113,7 @@ code {
 pre,
 code {
   font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 80%;
 }
 
 pre {
