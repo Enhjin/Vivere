@@ -57,27 +57,27 @@ Our training sessions are listed below:
 * Result: Agent can find it properly. Algorithm is functional.
 
 >
-**Step 2:** 5x5 grid, trained 1000 episodes. Randomly selecting a maze from 5 mazes every 10 episode. All the blocks are flammable and fires will not fade away. One fire has spawned in a fixed position. Agent is spawned in a fixed position on one side. Three exits in other 3 sides.
-* Result: There is overfitting. Agent learns to go straight only. It also cannot avoid fire since it spreads too fast and after a short time, there is no place for it to hide or dodge the fire.
-* Solution: Expand the grid while increase the maze set. 
+**Step 2:** 5x5 grid, trained 1000 episodes. Randomly selecting a maze from 5 mazes every 10 episode. All the blocks are flammable and fires will not fade away. One fire has spawned in a fixed position. Agent is spawned in a fixed position on one side. There are three exits on the other 3 sides of the map.
+* **Result:** There is overfitting. Agent learns to go straight only. It also cannot avoid fire since it spreads too fast and after a short time, there is no place for it to hide or dodge the fire.
+* **Solution:** Expand the grid while increase the maze set. 
 
 >
-**Step 3:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 50 mazes every 10 episode. There is a 50% chance for a passage to be flammable, which significantly decrease the fire’s influence, so we spawned 2 fixed fires.  Agent is spawned in a fixed position on one side. Three exits on other 3 sides.
+**Step 3:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 50 mazes every 10 episode. There is a 50% chance for a passage to be flammable which significantly decreases the fire’s influence, so we spawned 2 fixed fires.  Agent is spawned in a fixed position on one side. There are three exits on the other 3 sides of the map.
 * Result: There is still overfitting. Agent learns to go straight only, but the survival rate has improved since it learns to escape from fire.
 * Solution: Increase the maze set more. 
 
 >
-**Step 4:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 160 mazes every 5 episodes. Everything other conditions are the same.
+**Step 4:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 160 mazes every 5 episodes. Everything other conditions is the same.
 * Result: Still, the agent continues to reach the bottom exit. We assume that the agent tries to avoid fire on the left which prevents it to reach the left exit. Bottom exit is closer that the right one is, so the agent keeps on going straight to the bottom one.
 * Solution: Keep two exits only in the maze by randomly removing left exit or bottom exit. We hope this can encourage the agent to go the right exit. In addition, we increase the randomness further. 
 
 >
-**Step 5:** 7x7 grid, trained 1000 episodes. Selecting maze randomly from 1000 mazes every 3 episodes. One right exit, and one left or bottom exit. Everything other conditions are the same.
+**Step 5:** 7x7 grid, trained 2000 episodes. Selecting maze randomly from 1000 mazes every 3 episodes. One right exit, and one left or bottom exit. Every other conditions is the same.
 * Result: The agent gets much smarter now. It solves 5 easy or medium testing maps using 30 steps on average which is a huge improvement.
 
 *Further Exploration:*
 
-We continue to train model from step 5 in 7x7 mazes, but instead of using one frame, we changed our algorithm to use 3 frames now. After 4000 episodes, the result was not optimal. Consequently, our following Evaluation section focuses on the 7x7 grid, trained on 2000 episodes.
+We continue to train model from step 5 in 7x7 mazes, but instead of using one frame, we changed our algorithm to use 3 frames now. After 4000 episodes, the result was not optimal. Consequently, our following Evaluation section focuses on the 7x7 grid, trained on 2000 episodes. 
 
 We also decided to include a larger map (10x10) with the model trained from step 5:
 >
