@@ -35,4 +35,15 @@ To start this project, we first created random maps by writing a program that he
 To see more of our status report, visit the [Status](status.html) page.
 
 
+### Final Report
+Our final result of our agent is able to solve 7x7 mazes effectively. We readjusted our random map generator to accomodate variables that we cannot control (eg the direction and speed of how fast the fire spreads). By doing so, we were able to successfully train our agent on 7x7 maps, and with proper adjustments, our training did not result in an underfitting and/or overfitting model.
+
+To read our complete process and project, visit the [Final](final.html) page.
+
+Alternatively, we also included a summarized video report of our final product.
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/5i4LMlA8y80" frameborder="0" allowfullscreen=""></iframe>
+
+
+
 Source code: [Github repo](https://github.com/Enhjin/Vivere "Github repo").
