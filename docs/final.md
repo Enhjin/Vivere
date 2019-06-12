@@ -200,6 +200,8 @@ Originally, we had planned for our agent to be able to pick up resources as it l
 \[1\], \[2\]. 
 Matiisen, Tambet. "Guest Post (Part I): Demystifying Deep Reinforcement Learning."  Intel AI, Intel. Date Published on 22 December 2015. URL. https://www.intel.ai/demystifying-deep-reinforcement-learning/#gs.eggq2z
 
+AccessNowhere. "【Electro】渚-Silent Electro Remix-【CLANNAD】." Youtube.
+
 Britz, Denny. Reinforcement Learning.(2019). GitHub Repository. https://github.com/dennybritz/reinforcement-learning/tree/master/DQN 
 
 Juliani, Arthur. "Simple Reinforcement Learning with Tensorflow Part 4: Deep Q-Networks and Beyond." Medium, Medium, Date Published on 2 September 2016. URL. https://medium.com/@awjuliani/simple-reinforcement-learning-with-tensorflow-part-4-deep-q-networks-and-beyond-8438a3e2b8df
