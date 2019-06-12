@@ -9,10 +9,10 @@ Our project is similar to that of an “escape room,” where the agent must fin
 
 ### Approach
 
-To start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading. It is important to note the material of the generated map. We decided to set the material of the floor to be carpet so that the fire can spread; however, in Minecraft, it is normal for the fire to go out after a certain period of time. To battle this, we put netherrack blocks below the carpet so that when the carpet burns out, the fire continues and never extinguishes. In order to have our fire spread in a somewhat 'controlled path' so that it does not spread everywhere, we used glass instead of netherrack. Lastly, to block the agent and fire from a certain path or block, we used sea lanterns. The following images displays each block type and its purpose in our map.
+To start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading. It is important to note the material of the generated map. We decided to set the material of the floor to be carpet so that the fire can spread; however, in Minecraft, it is normal for the fire to go out after a certain period of time. To battle this, we put netherrack blocks below the carpet so that when the carpet burns out, the fire continues and never extinguishes. In order to have our fire spread in a somewhat 'controlled path' so that it does not spread everywhere, we used glass instead of netherrack. Next, in order to block the agent and fire from a certain path or block, we used sea lanterns. Lastly, we used emerald blocks to mark an exit. The following images displays each block type and its purpose in our map.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/175_block.jpg" alt="Block Information"  width="600" height="600"/></p><center><sup>Image 1 (Above): A visual representation of the blocks/terrain materials we used to build our maze.</sup></center> 
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/block.jpg" alt="Block Information"  width="600" height="600"/></p><center><sup>Image 1 (Above): A visual representation of the blocks/terrain materials we used to build our maze.</sup></center> 
 
 ##### Randomized Maps
 
@@ -49,7 +49,7 @@ In our original idea, our agent should dodge burning blocks to reach the exits. 
 * Use multiple exits and clear exits’ surrounding to simplify the path to the goal
 * Coarsely browse randomly generated mazes and delete hard ones, such as mazes having only one or two empty space to walk through in a row or a column, to speed up training efficiency.
 
-By all the three methods above, the agent has significantly improved its chance of surviving, which allows it to have enough time to collect information and actually “learns” from every maze it tried.
+By all the three methods above, the agent has significantly improved its chance of surviving, which allows it to have enough time to collect information and actually “learns” from every maze it tried. Malmo also allows the user to get the world state object from the agent host. From world state, we can get observations like the grid representation of the maze. With that, we can modify the speed at which our agent makes a move. Whenever there is a change in Minecraft, a new video frame is contained in the world state. Malmo keeps track of how many video frames have passed since previous state of the world. We modified our agent to make movement and save the resulting new state for every 3 video frame of the game. With these attributes, we trained our agent.
 
 Our training sessions are listed below:
 >
@@ -124,37 +124,40 @@ Another big part of our project is generating a random maze. The user can choose
 As an overview, we decided on the following factors for our analysis:
 
 *Baseline:*
-> Our previous baseline is so that the agent does not die in the fire and is able to find the exit. However, for this status report, our baseline changed such that the random agent can perform random movements until it either dies to the spreading fire or exits the maze by luck.
+> Our baseline is so that the agent does not die in the fire and is able to find the exit. We still hold true to this baseline, but in addition, also include our status report baseline: a random agent that can perform random movements until it either dies to the spreading fire or exits the maze by luck.
 
-*Quantitative Analysis for Status Report:*
+*Quantitative Analysis:*
 > The number of steps taken to find the exit. Ideally, we would want the number of steps to have a general decreasing trend on a graph.
 > During the training process, we should see an increase in the reward. It indicates that agent is solving the maze quicker each time, since there is a penalty for each extra move the agent makes.
 
-*Qualitative Analysis for Status Report:*
+*Qualitative Analysis:*
 > The agent does not run into the fire and die; alternatively, the agent is able to escape the fire, should it run into it.
 
 The following graphs represent our current progress on the algorithm and agent’s performance.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episode_length.png" alt="Graph 1: Episode Length" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_episode_len.jpg" alt="Graph 1: Final Episode Length" /></p>
 <center><sub>Graph 1 (Above): Episode Length. It shows the general trend of our episode lengths throughout the training.</sub></center> 
 
-Graph 1 demonstrates our overall trend on the episode length. Specifically, it is measured through the number of steps, or, rather, actions taken by the agent. Overall, it took a total of 20,000 steps during training and the general trend of the episode length decreases throughout the graph. This trend is supported in our following graphs of the episode reward, epsilon, loss per steps (i.e., error rate), and the max Q-value.
+Graph 1 demonstrates our overall trend on the episode length. Specifically, it is measured through the number of steps, or, rather, actions taken by the agent. Overall, it took a total of 197,000 steps during training and the general trend of the episode length decreases throughout the graph. This trend is supported in our following graphs of the episode reward, epsilon, loss per steps (i.e., error rate), and the max Q-value. For comparison, 20,000 steps enabled the agent to solve 5x5 maps in a decent performance. With the increase of steps to a total of 197,000, our agent is now able to solve 7x7 mazes.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episode_reward.png" alt="Graph 2: Episode Reward" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_episode_reward.jpg" alt="Graph 2: Final Episode Reward" /></p>
 <center><sub>Graph 2 (Above): Episode Reward. The general trend in the reward.</sub></center>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/episilon.png" alt="Graph 3: Epsilon" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_episilon.jpg" alt="Graph 3: Final Epsilon" /></p>
 <center><sub>Graph 3 (Above): Epsilon. The overall change of our epsilon value (eg chance of random action).</sub></center>
 
 With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or mission ends prematurely, i.e., run out of time or burned to death. 
 
 > The following displays our reward system:
 * Reaching a goal, in our case touching an emerald block: +100
-* Touching a fire: -55
-* Touching inner maze wall: -20
+* Touching a fire: -50
+* Touching Sea Lantern : -2
+* Touching Beacon (outer walls): -2
+* Touching Glass: -20
+* Touching/Walking on carpet : +1
 * Dying: -10
 * Making a move: -1
 
@@ -163,13 +166,13 @@ We want our agent to have its reward increasing to show that it is learning thro
 The general trend with epsilon starts at 1, and in Deep-Q learning, we should aim for epsilon to decrease to 0.1 such that the agent no longer or seldom takes random actions. At 20,000 steps (as corresponding to our episode reward and episode length graph), our epsilon has decreased to 0.63. Ideally, if more training were done with a greater number of steps taken (eg as we reach ~50,000 steps), we would be able to see epsilon closer to the value 0.1.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/loss.png" alt="Graph 4: Loss" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.png" alt="Graph 4: Final Loss" /></p>
 <center><sub>Graph 4 (Above): Loss. This graph shows our general loss throughout training.</sub></center>
 
 In machine learning, we aim to minimize our loss, or rather, the error rate as we train our agent. With Deep Q-learning, the agent should predict a move and its reward and select the action that will provide it with the highest reward. To ensure that our agent was minimizing its losses, we graphed the overall trend of our agent in respect to its error rate (Graph 4). We can see here that the error gradually decreases in respect to the number of steps our agent has taken. This finally leads us to our overall maximum Q-value trend.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/max_q_value.png" alt="Graph 5: Max Q-Value" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_qvalue.jpg" alt="Graph 5: Final Max Q-Value" /></p>
 <center><sub>Graph 5 (Above): Max Q-Value. The graph that shows an increasing trend in the maximum Q-value.</sub></center>
 
 Overall, our maximum Q-value increases which denotes a higher trend in performance in respect to the number of total steps taken. Our goal is to maximize the Q-value so that it helps the agent predict the next best action based on the expected reward. With a higher Q-value, it can thus choose the next best action and thereby minimizing loss.
