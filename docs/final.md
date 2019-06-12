@@ -181,7 +181,9 @@ We should aim to decrease the result of the loss function so that the agent perf
 
 Overall, our maximum Q-value increases which denotes a higher trend in performance in respect to the number of total steps taken. Our goal is to maximize the Q-value so that it helps the agent predict the next best action based on the expected reward. With a higher Q-value, it can thus choose the next best action and thereby minimizing loss.
 
-We trained our agent for approximately 8 hours and 5 minutes. Previously, we struggled with controlling the fire because it is beyond our control in terms of its speed and direction(s) when the fire is not blocked by a sea lantern. As aforementioned, we combatted this by randomly placing glass blocks instead of netherrack below the carpet to aid the agent in the training in 7x7 maps as well as to add more random dynamics into the environment. By readjusting our approach in our randomized maze creation, we can conclude that we successfully trained our agent for 7x7 maps.
+We trained our agent for approximately 8 hours and 5 minutes. The hardware used to train our model were 2 * GTX 1080Ti (11GB GDDR5), Intel i7-6850K 3800Mhz (6 cores, 12 threads, 15MB Cache) 24GB RAM. 
+
+Previously, we struggled with controlling the fire because it is beyond our control in terms of its speed and direction(s) when the fire is not blocked by a sea lantern. As aforementioned, we combatted this by randomly placing glass blocks instead of netherrack below the carpet to aid the agent in the training in 7x7 maps as well as to add more random dynamics into the environment. By readjusting our approach in our randomized maze creation, we can conclude that we successfully trained our agent for 7x7 maps.
 
 ### Looking Back
 
