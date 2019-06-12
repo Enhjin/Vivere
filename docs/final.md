@@ -165,7 +165,7 @@ With our episode reward graph (i.e., Graph 2), we measure how much our agent is 
 
 We want our agent to have its reward increasing to show that it is learning throughout its training sessions. Thus, the episode reward is relative to the number of steps the agent has taken. We estimate our graph to have numerous downward spikes due to our epsilon value - where our agent takes a random action as a way to explore the maze or its environment and avoid suboptimal convergence. However, throughout the entire graph, we can see that it gradually converges and stabilizes as epsilon decreases as seen in Graph 3.
 
-The general trend with epsilon starts at 1, and in Deep-Q learning, we should aim for epsilon to decrease to 0.1 such that the agent no longer or seldom takes random actions. At 20,000 steps (as corresponding to our episode reward and episode length graph), our epsilon has decreased to 0.63. Ideally, if more training were done with a greater number of steps taken (eg as we reach ~50,000 steps), we would be able to see epsilon closer to the value 0.1.
+The general trend with epsilon starts at 1, and in Deep-Q learning, we should aim for epsilon to decrease to 0.1 such that the agent no longer or seldom takes random actions. At 30,000 steps (as corresponding to our episode reward and episode length graph), our epsilon has decreased to 0.1. This means that our agent has stopped taking random actions, and therefore, is now making smarter moves. This greatly contributed to the success in the 7x7 maze.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.jpg" alt="Graph 4: Final Loss" /></p>
@@ -173,17 +173,19 @@ The general trend with epsilon starts at 1, and in Deep-Q learning, we should ai
 
 In machine learning, we aim to minimize our loss, or rather, the error rate as we train our agent. With Deep Q-learning, the agent should predict a move and its reward and select the action that will provide it with the highest reward. To ensure that our agent was minimizing its losses, we graphed the overall trend of our agent in respect to its error rate (Graph 4). We can see here that the error gradually decreases in respect to the number of steps our agent has taken. This finally leads us to our overall maximum Q-value trend.
 
+We should aim to decrease the result of the loss function so that the agent performs better. Generally, the loss function greatly increases (ie spikes upwards) because the agent is learning a new map; when a new map is seen, the agent constantly dies in the fire or runs out of time to solve the maze. As the agent begins to learn the map, the loss function decreases as it is training. 
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_qvalue.jpg" alt="Graph 5: Final Max Q-Value" /></p>
 <center><sub>Graph 5 (Above): Max Q-Value. The graph that shows an increasing trend in the maximum Q-value.</sub></center>
 
 Overall, our maximum Q-value increases which denotes a higher trend in performance in respect to the number of total steps taken. Our goal is to maximize the Q-value so that it helps the agent predict the next best action based on the expected reward. With a higher Q-value, it can thus choose the next best action and thereby minimizing loss.
 
-We trained our agent for approximately 3 hours and 40 minutes. It is important to note, however, that the fire acts and spreads randomly and is beyond our control in terms of its speed and direction(s) when the fire is not blocked by a sea lantern. Consequently, this made it extremely difficult to train the agent so that the agent can dodge the fire. On bigger maps, it would take longer (i.e, days of training) and a larger neural network.
+We trained our agent for approximately 8 hours and 5 minutes. Previously, we struggled with controlling the fire because it is beyond our control in terms of its speed and direction(s) when the fire is not blocked by a sea lantern. As aforementioned, we combatted this by randomly placing glass blocks instead of netherrack below the carpet to aid the agent in the training in 7x7 maps as well as to add more random dynamics into the environment. By readjusting our approach in our randomized maze creation, we can conclude that we successfully trained our agent for 7x7 maps.
 
 ### Looking Back
 
-Originally, we had planned for our agent to be able to pick up resources as it learned to avoid fire and to find a map. We also wanted out agent to succeed in solving 10x10 mazes. However, after receiving feedback from our peers, we decided to focus on making our agent ‘smarter’ in solving the mazes with a dynamic, random factor of the spreading fire - rather than overload our agent in doing multiple tasks. As a result, our project became an agent that can effectively solve 7x7 mazes in a reasonably fast time with minimal reward loss and instead, redefined our 10x10 goal as a challenge for this project.
+Originally, we had planned for our agent to be able to pick up resources as it learned to avoid fire and to find a map. We also wanted out agent to succeed in solving 10x10 mazes. However, after receiving feedback from our peers and our Professor, we decided to focus on making our agent ‘smarter’ in solving the mazes with a dynamic, random factor of the spreading fire - rather than overload our agent in doing multiple tasks (ie having our agent collect resources simultaneously). As a result, our project became an agent that can effectively solve 7x7 mazes in a reasonably fast time with minimal reward loss. Meanwhile, we redefined our 10x10 goal as a challenge for this project.
 
 ### Video
 
