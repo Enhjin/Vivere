@@ -4,7 +4,7 @@ title:  Final Report
 ---
 
 ### Summary of the Project
-Our project is similar to that of an “escape room,” where the agent must find an exit of a room, where the room is provided as an input, within a reasonable amount of time. However, the agent must avoid death as there is a fire that spreads throughout the map. As a result, dying is equivalent to a penalty and finding exits within a short amount of time (or with minimal steps) is essential to rewards. 
+Our project is similar to that of an “escape room,” where the agent must find an exit of a room within a reasonable amount of time. However, the agent must avoid death as there is a fire that spreads throughout the map. As a result, dying is equivalent to a penalty and finding exits with a with minimal number of steps is essential to rewards. 
 
 
 ### Approach
@@ -15,10 +15,7 @@ Insert picture of blocks and their corresponding meaning.
 
 ##### Randomized Maps
 
-
-*Algorithm*
-
-To avoid overfitting our agent on one kind of map, we applied randomized Prim’s algorithm to write our own randomized map generator to get large numbers of maps to train and test our agent. Here is the modified version of randomized Prim’s algorithm:
+To avoid overfitting our agent on one kind of map, we applied randomized Prim’s algorithm to write our own randomized map generator to get large numbers of maps to train and test our agent. Here is the modified version of randomized Prim's algorithm:
 
 >
 * Build a 2D grid of blocks;
