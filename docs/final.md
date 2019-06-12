@@ -33,13 +33,11 @@ The image below shows an example of a randomly generated 5x5 sized maze.
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="5x5 maze"  width="600" height="600"/>
-</p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="5x5 maze"  width="600" height="600"/></p>
 <center><sub>Maze 1 (Above): An example of a 5x5 randomly generated maze with fire.</sub></center> 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="800" height="500"/>
-</p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="800" height="500"/></p>
 <center><sub>Maze 2 (Above): An example of a 7x7 randomly generated maze with fire.</sub></center> 
 
 
@@ -179,10 +177,7 @@ We trained our agent for approximately 3 hours and 40 minutes. It is important t
 
 ### Looking Back
 
-Originally, we had planned for our agent to be able to pick up resources as it learned to avoid fire and to find a map. In addition, we also planned to do a 10x10 map but realized that after a number of training episodes, our agent was performing as time went on (eg taking a longer time to find the exit, dying in the fire more, etc.) After receiving feedback from our peers, we decided to focus on making our agent ‘smarter’ in solving the mazes with a dynamic, random factor of the spreading fire - rather than overload our agent in doing multiple tasks. As a result, our project became an agent that can effectively solve 7x7 mazes in a reasonably fast time with minimal reward loss.
-
-
-
+Originally, we had planned for our agent to be able to pick up resources as it learned to avoid fire and to find a map. We also wanted out agent to succeed in solving 10x10 mazes. However, after receiving feedback from our peers, we decided to focus on making our agent ‘smarter’ in solving the mazes with a dynamic, random factor of the spreading fire - rather than overload our agent in doing multiple tasks. As a result, our project became an agent that can effectively solve 7x7 mazes in a reasonably fast time with minimal reward loss and instead, redefined our 10x10 goal as a challenge for this project.
 
 ### Video
 
