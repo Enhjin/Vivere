@@ -31,9 +31,9 @@ To avoid overfitting our agent on one kind of map, we applied randomized Prim’
 
 The image below shows an example of a randomly generated 5x5 sized maze.
 
-| <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="5x5 maze"  width="600" height="600"/> | <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="600" height="600"/> |
+| <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="5x5 maze"  width="600" height="600"/> | <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="800" height="500"/> |
 | ------------- | ------------- |
-| <sub>Maze 1 (Above): An example of a 5x5 randomly generated maze with fire.</sub> | <sub>Maze 2 (Above): An example of a 7x7 randomly generated maze with fire.</sub> |
+| <center><sub>Maze 1 (Above): An example of a 5x5 randomly generated maze with fire.</sub></center> | <center><sub>Maze 2 (Above): An example of a 7x7 randomly generated maze with fire.</sub></center> |
 
 
 
@@ -43,7 +43,7 @@ The image below shows an example of a randomly generated 5x5 sized maze.
 <center><sub>Maze 1 (Above): An example of a 5x5 randomly generated maze with fire.</sub></center> 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="600" height="600"/>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="800" height="500"/>
 </p>
 <center><sub>Maze 2 (Above): An example of a 7x7 randomly generated maze with fire.</sub></center> 
 
