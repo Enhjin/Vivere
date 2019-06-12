@@ -54,7 +54,7 @@ By all the three methods above, the agent has significantly improved its chance 
 Our training sessions are listed below:
 >
 **Step 1:** 5x5 grid, no maze, no fire, and one exit. Agent is spawned in a fixed position in one side.
-* Result: Agent can find it properly. Algorithm is functional.
+* **Result:** Agent can find it properly. Algorithm is functional.
 
 >
 **Step 2:** 5x5 grid, trained 1000 episodes. Randomly selecting a maze from 5 mazes every 10 episode. All the blocks are flammable and fires will not fade away. One fire has spawned in a fixed position. Agent is spawned in a fixed position on one side. There are three exits on the other 3 sides of the map.
@@ -63,17 +63,17 @@ Our training sessions are listed below:
 
 >
 **Step 3:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 50 mazes every 10 episode. There is a 50% chance for a passage to be flammable which significantly decreases the fire’s influence, so we spawned 2 fixed fires.  Agent is spawned in a fixed position on one side. There are three exits on the other 3 sides of the map.
-* Result: There is still overfitting. Agent learns to go straight only, but the survival rate has improved since it learns to escape from fire.
-* Solution: Increase the maze set more. 
+* **Result:** There is still overfitting. Agent learns to go straight only, but the survival rate has improved since it learns to escape from fire.
+* **Solution:** Increase the maze set more. 
 
 >
 **Step 4:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 160 mazes every 5 episodes. Everything other conditions is the same.
-* Result: Still, the agent continues to reach the bottom exit. We assume that the agent tries to avoid fire on the left which prevents it to reach the left exit. Bottom exit is closer that the right one is, so the agent keeps on going straight to the bottom one.
-* Solution: Keep two exits only in the maze by randomly removing left exit or bottom exit. We hope this can encourage the agent to go the right exit. In addition, we increase the randomness further. 
+* **Result:** Still, the agent continues to reach the bottom exit. We assume that the agent tries to avoid fire on the left which prevents it to reach the left exit. Bottom exit is closer that the right one is, so the agent keeps on going straight to the bottom one.
+* **Solution:** Keep two exits only in the maze by randomly removing left exit or bottom exit. We hope this can encourage the agent to go the right exit. In addition, we increase the randomness further. 
 
 >
 **Step 5:** 7x7 grid, trained 2000 episodes. Selecting maze randomly from 1000 mazes every 3 episodes. One right exit, and one left or bottom exit. Every other conditions is the same.
-* Result: The agent gets much smarter now. It solves 5 easy or medium testing maps using 30 steps on average which is a huge improvement.
+* **Result:** The agent gets much smarter now. It solves 5 easy or medium testing maps using 30 steps on average which is a huge improvement.
 
 *Further Exploration:*
 
@@ -82,7 +82,7 @@ We continue to train model from step 5 in 7x7 mazes, but instead of using one fr
 We also decided to include a larger map (10x10) with the model trained from step 5:
 >
 A 10x10 sized grid, trained for ~1600 episodes. Selecting maze randomly from 1000 mazes every 3 episodes. Other conditions are kept the same as 7x7 grid.
-* *Result:* The agent can not find an exit anymore since the maze is getting much larger than before. We anticipated this and already selected simple mazes for training. However, most of the time, the agent cannot find the exit within a 1.5 minute time limit minute at each episode. (We also tried to set the time limit to 15 minutes, but the result is not good either.) Considering the time required for training in total, we stopped after 1600 episodes. 
+* **Result:** The agent can not find an exit anymore since the maze is getting much larger than before. We anticipated this and already selected simple mazes for training. However, most of the time, the agent cannot find the exit within a 1.5 minute time limit minute at each episode. (We also tried to set the time limit to 15 minutes, but the result is not good either.) Considering the time required for training in total, we stopped after 1600 episodes. 
 
 
 
