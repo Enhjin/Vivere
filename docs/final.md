@@ -141,15 +141,17 @@ The following graphs represent our current progress on the algorithm and agentâ€
 
 Graph 1 demonstrates our overall trend on the episode length. Specifically, it is measured through the number of steps, or, rather, actions taken by the agent. Overall, it took a total of 197,000 steps during training and the general trend of the episode length decreases throughout the graph. This trend is supported in our following graphs of the episode reward, epsilon, loss per steps (i.e., error rate), and the max Q-value. For comparison, 20,000 steps enabled the agent to solve 5x5 maps in a decent performance. With the increase of steps to a total of 197,000, our agent is now able to solve 7x7 mazes.
 
+The graph spikes up and down in correspondence to the number of steps taken in the respective epsiode. Spiking up denotes that the episode length was longer, and therefore, the agent took more steps; contrary, spiking downwards means that the episode length was shorter, indicating that the agent took fewer steps to solve the maze. Generally, episode lengths spikes upward when the agent is learning a new map.
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_episode_reward.jpg" alt="Graph 2: Final Episode Reward" /></p>
 <center><sub>Graph 2 (Above): Episode Reward. The general trend in the reward.</sub></center>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.jpg" alt="Graph 3: Final Epsilon" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_epsilon.jpg" alt="Graph 3: Final Epsilon" /></p>
 <center><sub>Graph 3 (Above): Epsilon. The overall change of our epsilon value (eg chance of random action).</sub></center>
 
-With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or if mission ends prematurely, i.e., run out of time or burned to death. 
+With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or if the mission ends prematurely, i.e., run out of time or burned to death. 
 
 > The following displays our reward system:
 * Reaching a goal, in our case touching an emerald block: +100
