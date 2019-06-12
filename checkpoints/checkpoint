@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/xinxinxie/MalmoPlatform/Malmo/samples/Python_examples/experiments/DeepQLearning/checkpoints/model"
+all_model_checkpoint_paths: "/home/xinxinxie/MalmoPlatform/Malmo/samples/Python_examples/experiments/DeepQLearning/checkpoints/model"
