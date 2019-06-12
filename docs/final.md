@@ -29,7 +29,7 @@ To avoid overfitting our agent on one kind of map, we applied randomized Prim’
     * Compute new frontier cells and add them into frontier cells set;
     * Remove current frontier cell from frontier cells set.
 
-The image below shows an example of a randomly generated 5x5 sized maze.
+The image below shows an example of a randomly generated 5x5- and 7x7- size maze respectfully.
 
 
 <p align="center">
