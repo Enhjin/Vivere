@@ -15,6 +15,7 @@ Insert picture of blocks and their corresponding meaning.
 
 ##### Randomized Maps
 
+
 *Algorithm*
 
 To avoid overfitting our agent on one kind of map, we applied randomized Prim’s algorithm to write our own randomized map generator to get large numbers of maps to train and test our agent. Here is the modified version of randomized Prim’s algorithm:
@@ -38,42 +39,34 @@ The image below shows an example of a randomly generated 5x5 sized maze.
 </p>
 <center><sub>Image 1 (Above): An example of a 5x5 randomly generated maze with fire.</sub></center> 
 
-In our plan, our agent should dodge burning blocks to reach the exits. However, not every randomized maze with spreading fire can suffice our needs of training. The difficulty of a maze and spreading speed of the fire both have huge influences on the agent’s performance. Therefore, the design of our maze is constantly evolving during the training. Based on the feedback from the agent while monitoring the training progress, we gradually adjust our mazes by: 
+In our original idea, our agent should dodge burning blocks to reach the exits. However, not every randomized maze with spreading fire can suffice our needs of training. The difficulty of a maze and spreading speed of the fire both have huge influences on the agent’s performance. Therefore, the design of our maze is constantly evolving during the training. Based on the feedback from the agent while monitoring the training progress, we gradually adjust our mazes by: 
 
 >
-1. Randomly alternate flammable (carpet) and inflammable (glass) blocks to build the passage of the maze to restrain the fire from spreading too fast.
-2. Use multiple exits and clear exits’ surrounding to simplify the path to the goal
-3. Coarsely browse randomly generated mazes and delete hard ones, such as mazes having only one or two empty space to walk through in a row or a column, to speed up training efficiency.
+* Randomly alternate flammable (carpet) and inflammable (glass) blocks to build the passage of the maze to restrain the fire from spreading too fast.
+* Use multiple exits and clear exits’ surrounding to simplify the path to the goal
+* Coarsely browse randomly generated mazes and delete hard ones, such as mazes having only one or two empty space to walk through in a row or a column, to speed up training efficiency.
 
 By all the three methods above, the agent has significantly improved its chance of surviving, which allows it to have enough time to collect information and actually “learns” from every maze it tried.
 
 Our training sessions are listed below:
-
+>
 **Step 1:** 5x5 grid, no maze, no fire, and one exit. Agent is spawned in a fixed position in one side.
+* *Result:* Agent can find it properly. Algorithm is functional.
 
-*Result:* Agent can find it properly. Algorithm is functional.
+**Step 2:** 5x5 grid, trained 1000 episodes. Randomly selecting a maze from 5 mazes every 10 episode. All the blocks are flammable and fires won’t fade away. One fire has spawned in a fixed position. Agent is spawned in a fixed position on one side. Three exits in other 3 sides.
+* *Result:* There is overfitting. Agent learns to go straight only. It also cannot avoid fire since it spreads too fast and after a short time, there is no place for it to hide or dodge the fire.
+* *Solution:* Expand the grid while increase the maze set.
 
-**Step 2:** 5x5 grid, trained 1000 episodes. Randomly selecting a maze from 5 mazes every 10 episode. All the blocks are flammable and fires won’t fade away. One fire has spawned in a fixed position. Agent is spawned in a fixed position on one side. 3 exits in other 3 sides.
-
-*Result:* There is overfitting. Agent learns to go straight only. It also cannot avoid fire since it spreads too fast and after a short time, there is no place for it to hide or dodge the fire.
-
-*Solution:* Expand the grid while increase the maze set.
-
-**Step 3:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 50 mazes every 10 episode. There is a 50% chance for a passage to be flammable, which significantly decrease the fire’s influence, so we spawned 2 fixed fires.  Agent is spawned in a fixed position on one side. 3 exits on other 3 sides.
-
-*Result:* There is still overfitting. Agent learns to go straight only, but the survival rate has improved since it learns to escape from fire.
-
-*Solution:* Increase the maze set more.
+**Step 3:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 50 mazes every 10 episode. There is a 50% chance for a passage to be flammable, which significantly decrease the fire’s influence, so we spawned 2 fixed fires.  Agent is spawned in a fixed position on one side. Three exits on other 3 sides.
+* *Result:* There is still overfitting. Agent learns to go straight only, but the survival rate has improved since it learns to escape from fire.
+* *Solution:* Increase the maze set more.
 
 **Step 4:** 7x7 grid, trained 1000 episodes. Randomly selecting a maze from 160 mazes every 5 episodes. Everything other conditions are the same.
-
-*Result:* Still, the agent continues to reach the bottom exit. We assume that the agent tries to avoid fire on the left which prevents it to reach the left exit. Bottom exit is closer that the right one is, so the agent keeps on going straight to the bottom one.
-
-*Solution:* Keep two exits only in the maze by randomly removing left exit or bottom exit. We hope this can encourage the agent to go the right exit. In addition, we increase the randomness further.
+* *Result:* Still, the agent continues to reach the bottom exit. We assume that the agent tries to avoid fire on the left which prevents it to reach the left exit. Bottom exit is closer that the right one is, so the agent keeps on going straight to the bottom one.
+* *Solution:* Keep two exits only in the maze by randomly removing left exit or bottom exit. We hope this can encourage the agent to go the right exit. In addition, we increase the randomness further.
 
 **Step 5:** 7x7 grid, trained 1000 episodes. Selecting maze randomly from 1000 mazes every 3 episodes. One right exit, and one left or bottom exit. Everything other conditions are the same.
-
-*Result:* The agent gets much smarter now. It solves 5 easy or medium testing maps using 30 steps on average which is a huge improvement.
+* *Result:* The agent gets much smarter now. It solves 5 easy or medium testing maps using 30 steps on average which is a huge improvement.
 
 *Further Exploration:*
 
@@ -84,6 +77,7 @@ We continue to train model from step 5 in 7x7 mazes, but instead of using one fr
 A 10x10 sized grid, trained for ~1600 episodes. Selecting maze randomly from 1000 mazes every 3 episodes. Other conditions are kept the same as 7x7 grid.
 
 *Result:* The agent can not find an exit anymore since the maze is getting much larger than before. We anticipated this and already selected simple mazes for training. However, most of the time, the agent cannot find the exit within a 1.5 minute time limit minute at each episode. (We also tried to set the time limit to 15 minutes, but the result is not good either.) Considering the time required for training in total, we stopped after 1600 episodes. 
+
 
 
 ##### Deep-Q Learning
