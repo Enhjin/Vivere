@@ -12,8 +12,7 @@ Our project is similar to that of an “escape room,” where the agent must fin
 To start this project, we first created random maps by writing a program that helps us generate a map via XML strings. The user would input the size of the map he or she wants, and shortly after, the program will output a long string for the map. This map includes exit point(s), blocks/areas where the agent is not able to access, and a location for the fire to start spreading. It is important to note the material of the generated map. We decided to set the material of the floor to be carpet so that the fire can spread; however, in Minecraft, it is normal for the fire to go out after a certain period of time. To battle this, we put netherrack blocks below the carpet so that when the carpet burns out, the fire continues and never extinguishes. In order to have our fire spread in a somewhat 'controlled path' so that it does not spread everywhere, we used glass instead of netherrack. Lastly, to block the agent and fire from a certain path or block, we used sea lanterns. The following images displays each block type and its purpose in our map.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/175_block.jpg" alt="Block Information"  width="600" height="600"/></p>
-<center><sup>Image 1 (Above): A visual representation of the blocks/terrain materials we used to build our maze.</sup></center> 
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/175_block.jpg" alt="Block Information"  width="600" height="600"/></p><center><sup>Image 1 (Above): A visual representation of the blocks/terrain materials we used to build our maze.</sup></center> 
 
 ##### Randomized Maps
 
@@ -35,12 +34,10 @@ The image below shows an example of a randomly generated 5x5- and 7x7- size maze
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="5x5 maze"  width="600" height="600"/></p>
-<center><sup>Image 2 (Above): An example of a 5x5 randomly generated maze with fire.</sup></center> 
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/homepage%20img.png" alt="5x5 maze"  width="600" height="600"/></p><center><sup>Image 2 (Above): An example of a 5x5 randomly generated maze with fire.</sup></center> 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="800" height="500"/></p>
-<center><sup>Image 3 (Above): An example of a 7x7 randomly generated maze with fire.</sup></center> 
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/7x7.png" alt="7x7 maze"  width="800" height="500"/></p><center><sup>Image 3 (Above): An example of a 7x7 randomly generated maze with fire.</sup></center> 
 
 
 In our original idea, our agent should dodge burning blocks to reach the exits. However, not every randomized maze with spreading fire can suffice our needs of training. The difficulty of a maze and spreading speed of the fire both have huge influences on the agent’s performance. Therefore, the design of our maze is constantly evolving during the training. Based on the feedback from the agent while monitoring the training progress, we gradually adjust our mazes by: 
