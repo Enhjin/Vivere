@@ -51,8 +51,8 @@ By all the three methods above, the agent has significantly improved its chance 
 Our training sessions are listed below:
 >
 **Step 1:** 5x5 grid, no maze, no fire, and one exit. Agent is spawned in a fixed position in one side.
-* Result: Agent can find it properly. Algorithm is functional. >
-
+* Result: Agent can find it properly. Algorithm is functional.
+>
 **Step 2:** 5x5 grid, trained 1000 episodes. Randomly selecting a maze from 5 mazes every 10 episode. All the blocks are flammable and fires will not fade away. One fire has spawned in a fixed position. Agent is spawned in a fixed position on one side. Three exits in other 3 sides.
 * Result: There is overfitting. Agent learns to go straight only. It also cannot avoid fire since it spreads too fast and after a short time, there is no place for it to hide or dodge the fire.
 * Solution: Expand the grid while increase the maze set. 
