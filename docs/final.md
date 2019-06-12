@@ -149,7 +149,7 @@ Graph 1 demonstrates our overall trend on the episode length. Specifically, it i
     <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.jpg" alt="Graph 3: Final Epsilon" /></p>
 <center><sub>Graph 3 (Above): Epsilon. The overall change of our epsilon value (eg chance of random action).</sub></center>
 
-With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or mission ends prematurely, i.e., run out of time or burned to death. 
+With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or if mission ends prematurely, i.e., run out of time or burned to death. 
 
 > The following displays our reward system:
 * Reaching a goal, in our case touching an emerald block: +100
@@ -166,7 +166,7 @@ We want our agent to have its reward increasing to show that it is learning thro
 The general trend with epsilon starts at 1, and in Deep-Q learning, we should aim for epsilon to decrease to 0.1 such that the agent no longer or seldom takes random actions. At 20,000 steps (as corresponding to our episode reward and episode length graph), our epsilon has decreased to 0.63. Ideally, if more training were done with a greater number of steps taken (eg as we reach ~50,000 steps), we would be able to see epsilon closer to the value 0.1.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.png" alt="Graph 4: Final Loss" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.jpg" alt="Graph 4: Final Loss" /></p>
 <center><sub>Graph 4 (Above): Loss. This graph shows our general loss throughout training.</sub></center>
 
 In machine learning, we aim to minimize our loss, or rather, the error rate as we train our agent. With Deep Q-learning, the agent should predict a move and its reward and select the action that will provide it with the highest reward. To ensure that our agent was minimizing its losses, we graphed the overall trend of our agent in respect to its error rate (Graph 4). We can see here that the error gradually decreases in respect to the number of steps our agent has taken. This finally leads us to our overall maximum Q-value trend.
