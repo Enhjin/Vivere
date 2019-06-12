@@ -146,7 +146,7 @@ Graph 1 demonstrates our overall trend on the episode length. Specifically, it i
 <center><sub>Graph 2 (Above): Episode Reward. The general trend in the reward.</sub></center>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_episilon.jpg" alt="Graph 3: Final Epsilon" /></p>
+    <img src="https://raw.githubusercontent.com/Enhjin/Vivere/master/final_loss.jpg" alt="Graph 3: Final Epsilon" /></p>
 <center><sub>Graph 3 (Above): Epsilon. The overall change of our epsilon value (eg chance of random action).</sub></center>
 
 With our episode reward graph (i.e., Graph 2), we measure how much our agent is rewarded based on the actions it takes and whether it reaches the goal or mission ends prematurely, i.e., run out of time or burned to death. 
