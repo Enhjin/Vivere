@@ -19,7 +19,7 @@ title:  Home
 ---
 
 ### What is Vivere?
-Vivere in Latin means "life." We chose this based on our project idea: an artificial intelligence, built within malmo, will be trapped in a maze and must escape. However, within this maze, is an increasingly spreading fire and resources. Our aim for our AI is to be able to find an exist (out of multiple ones) and escape in a fast time while having collected food resources.
+Vivere in Latin means "life." We chose this based on our project idea: an artificial intelligence, built within malmo, will be trapped in a maze and must escape. However, within this maze, is an spreading fire. Our aim for our AI is to be able to find an exist (out of multiple ones) and escape in a fast time.
 
 For more information and details, visit the [Proposal](proposal.html) page.
 
