@@ -4,7 +4,7 @@ title: Status
 ---
 
 ### Summary of the Project
-Our project is similar to that of an “escape room,” where the agent must find an exit of a room, where the room is provided as an input, within a reasonable amount of time. However, the agent must avoid death as there is a fire that spreads throughout the map and should aim to recover resources along the way. As a result, dying is equivalent to a penalty and recovering resources and finding exits within a short amount of time (or with minimal steps) is essential to rewards.  
+Our project is similar to that of an “escape room,” where the agent must find an exit of a room within a reasonable amount of time. However, the agent must avoid death as there is a fire that spreads throughout the map and should aim to recover resources along the way. As a result, dying is equivalent to a penalty and recovering resources and finding exits within a short amount of time (or with minimal steps) is essential to rewards.  
 
 ### Approach
 
