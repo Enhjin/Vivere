@@ -3,17 +3,17 @@ layout: default
 title: Proposal
 ---
 ### Summary of the Project
-  This project will create something similar to that of an “escape room.”
+  This project will be similar to that of an “escape room.”
 
 *Input:*
-   > * A (not necessarily randomly generated) map with blocks, spreading fire, and food resources. There will be multiple exits, and our agent should find an exit with a minimal number of steps without dying.
+   > * A (not necessarily randomly generated) map with blocks, spreading fire, and food resources. There will be multiple exits, and our agent should find an exit with a minimal number of steps, or within a fast time, without dying.
    > * The agent will know that it should avoid any death threats (equivalent to penalty).
 
 *Output/Result:*
    > * A good result will have the agent escape from the fire in a minimal number of steps while having collected resources.
    > * A negative result would be the agent dying from the fire.
 
-In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. Assuming that the environment can have single or multiple exits, our robot can find efficient escape routes and simultaneously collect resources, while there is an eminent threat that grows in size. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials could be more efficient and safer.
+In terms of application(s),  we can apply this model to rescuing robots. A rescuing robot is a robot that can save human lives. Assuming that the environment can have single or multiple exits, our robot can find efficient escape routes, and simultaneously collect resources, while there is an eminent threat that grows in size. When robots learn how to save people and collect other valuable things in dangerous scenarios, we can avoid risking lives of people, such as firemen. In addition, there are many places that humans can not safely access, so using a robot to collect materials could be more efficient and safer.
 
 ### Algorithm 
 
@@ -27,7 +27,7 @@ We will evaluate our agent’s performance based on how many steps it takes to f
 
 *Metrics and Baseline*
 
-> Our quantitative metrics specifically aim at the number of steps taken to escape the farm and the number of resources the agent  collects. The baseline is to have the agent safely escape the farm and to have it collect at least 1 resource. We decided to include a baseline for the resource - to collect at least 1 resource - otherwise, the agent would simply escape the farm without collecting anything.
+> Our quantitative metrics specifically aim at the number of steps taken to escape the map and the number of resources the agent  collects. The baseline is to have the agent safely escape the farm and to have it collect at least 1 resource. We decided to include a baseline for the resource; otherwise, the agent would simply escape the farm without collecting anything.
 
 *Expectation in Performance Improvement*
 
@@ -45,7 +45,7 @@ We will evaluate our agent’s performance based on how many steps it takes to f
 
 *Moonshot Case:*
 
-> We hope that our agent can perform well in more complicated worlds, not only in an environment where a farm is on fire.
+> We hope that our agent can perform well in more complicated worlds, not only in a situation where the environment is on fire.
 
 
 ### Appointment with the Instructor
